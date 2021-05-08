@@ -1,4 +1,4 @@
-import './css/styles.css';
+import './styles.scss';
 
 import eventsService from './js/apiEventsService';
 
