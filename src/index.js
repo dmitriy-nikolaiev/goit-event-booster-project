@@ -1,4 +1,5 @@
 import './styles.scss';
+import './js/appendLogo';
 
 import eventsService from './js/apiEventsService';
 
