@@ -6,9 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Event Booster</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
+  <section class="hero">
+    <div class="container">
+      <h1>FIND BEST EVENTS AROUND THE WORLD</h1>
+      <form id="search-events-form">
+        <div class="input-group input-container">
+          <input type="text" placeholder="Start searching" name="event" id="input-event">
+        </div>
+        <div class="input-group select-container">
+          <select name="country" id="input-country"></select>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="main">
+    <div class="container">
+      <div class="cards-holder"></div>
+      <div class="paginator" id="paginator"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© 2021 | All Rights Reserved | Developed with <span class="footer-heart">♥</span> by GoIT Students</span>
+    </div>
+  </footer>
 </body>
 
 </html>
