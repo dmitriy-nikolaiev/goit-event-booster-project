@@ -1,0 +1,32 @@
+.footer-text {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #939393;
+}
+.footer-wraper {
+  width: 280px;
+  height: 80px;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and(min-width: 768px) {
+    width: 480px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+.footer-heart {
+  color: red;
+}
