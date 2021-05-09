@@ -1,0 +1,23 @@
+<ul class="paginator-list">
+  {{#if firstPageBlock}}
+  <li data-page="1">
+    1
+  </li>
+  <li>
+    ...
+  </li>
+  {{/if}}
+  {{#each pagesToShow}}
+  <li data-page="this">
+    {{this}}
+  </li>
+  {{/each}}
+  {{#if lastPageBlock}}
+  <li>
+    ...
+  </li>
+  <li data-page="{{lastPage}}">
+    {{lastPage}}
+  </li>
+  {{/if}}
+</ul>
