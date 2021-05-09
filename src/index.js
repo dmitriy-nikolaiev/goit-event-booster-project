@@ -1,7 +1,9 @@
 import './styles.scss';
 import './js/appendLogo';
 
+
 import eventsService from './js/apiEventsService';
+import EventsList from './js/eventsList.js';
 
 const getAllEvents = async () => {
   try {
@@ -14,3 +16,5 @@ const getAllEvents = async () => {
 
 //dimnik: Пример работы API
 // getAllEvents();
+const eventList = new EventsList('.cards-holder');
+eventList.getAllEvents();
