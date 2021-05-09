@@ -1,4 +1,5 @@
 import eventsService from './apiEventsService.js';
+import eventCardListTemplate from '../templates/eventCardList.hbs';
 
 class EventsList {
   constructor(selector) {
@@ -27,17 +28,14 @@ class EventsList {
 
   renderList(events) {
     // console.log(events, '---events');
-    const eventData = events.map(event => {
-      return this.eventDataAdapter(event);
-    });
-
-    console.log(eventData, '---eventData');
+    this.listElement.innerHTML = eventCardListTemplate(
+      events.map(event => this.eventDataAdapter(event)),
+    );
   }
 
   getAllEvents = async () => {
     try {
       const result = await eventsService.getAllEvents();
-      // console.log(result, '---result');
       this.renderList(result._embedded.events);
     } catch (error) {
       console.log(error);
