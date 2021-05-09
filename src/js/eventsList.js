@@ -15,7 +15,7 @@ class EventsList {
     );
     const venue = _embedded.venues[0].name
       ? _embedded.venues[0].name
-      : `Place of ${_embedded.venues[0].country.name}`;
+      : _embedded.venues[0].city.name;
 
     return {
       id,
