@@ -1,0 +1,21 @@
+.main-title {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #dc56c5;
+  margin-top: 78px;
+
+  @media screen and(min-width: 768px) and (max-width: 1281px) {
+    font-size: 30px;
+    line-height: 37px;
+    margin-top: 40px;
+  }
+  @media screen and(min-width: 1280px) {
+    font-size: 50px;
+    line-height: 60px;
+  }
+}

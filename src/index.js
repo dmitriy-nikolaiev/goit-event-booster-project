@@ -1,5 +1,6 @@
 import './styles.scss';
-// import './js/appendLogo';
+import './js/appendLogo';
+
 
 import eventsService from './js/apiEventsService';
 import EventsList from './js/eventsList.js';
