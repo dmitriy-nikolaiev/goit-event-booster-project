@@ -13,4 +13,4 @@ const getAllEvents = async () => {
 };
 
 //dimnik: Пример работы API
-// getAllEvents();
+getAllEvents();

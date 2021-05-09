@@ -4,7 +4,7 @@ const API_KEY = 'Y7Q54DNo5Fc2RWQ0VYfv9OHSBr0MiT9B';
 export default {
   async getAllEvents() {
     const rawResult = await fetch(
-      `${BASE_URL}/events.json?countryCode=NL&&apikey=${API_KEY}`,
+      `${BASE_URL}/events.json?countryCode=NL&&apikey=${API_KEY}&page=1&size=28`,
     );
 
     if (!rawResult.ok) {
