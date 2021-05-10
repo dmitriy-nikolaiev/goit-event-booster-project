@@ -1,0 +1,45 @@
+.event-card {
+  width: 194px;
+  // height: 312px;
+  color: #ffffff;
+  text-align: center;
+
+  .event-image-wrapper {
+    width: 180px;
+    height: 227px;
+    overflow: hidden;
+    position: relative;
+
+    .event-image {
+      position: absolute;
+      top: 0px;
+      left: -60px;
+    }
+  }
+
+  .event-title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+
+    text-align: center;
+
+    color: #dc56c5;
+  }
+
+  .event-date {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .event-place {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
