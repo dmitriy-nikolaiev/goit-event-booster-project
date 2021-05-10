@@ -1,0 +1,26 @@
+.paginator-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  li {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 30px;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    &.current {
+      color: #dc56c5;
+      border: 1px solid #dc56c5;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      cursor: initial;
+    }
+  }
+}

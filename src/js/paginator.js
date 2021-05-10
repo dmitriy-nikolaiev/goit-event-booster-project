@@ -6,15 +6,26 @@ export default class Paginator {
   firstPage = 1;
   currentPage = 1;
   totalPages = 0;
-  constructor(itemsPerPage, selector) {
+  constructor(itemsPerPage, selector, callback = () => {}) {
     this.itemsPerPage = itemsPerPage;
     this.rootElement = document.querySelector(selector);
+    this.callback = callback;
+    this.eventListeners();
   }
   get page() {
     return this.currentPage;
   }
   get perPage() {
     return this.itemsPerPage;
+  }
+
+  eventListeners() {
+    this.rootElement.addEventListener('click', e => {
+      if (e.target.nodeName == 'LI' && e.target.dataset.page) {
+        this.currentPage = Number(e.target.dataset.page);
+        this.callback();
+      }
+    });
   }
 
   setPage(page) {
@@ -38,19 +49,13 @@ export default class Paginator {
     let lastPageBlock = false;
     let pagesToShow = [];
     if (this.totalPages > 5) {
-      if (this.currentPage > 3) {
-        firstPageBlock = true;
-      }
-      if (this.currentPage <= this.totalPages - 3) {
-        lastPageBlock = true;
-      }
+      firstPageBlock = this.currentPage > 3 && true;
+      lastPageBlock = this.currentPage <= this.totalPages - 3 && true;
     }
 
     if (this.currentPage < 4 || this.totalPages <= 5) {
       for (let i = 1; i <= 5; i += 1) {
-        if (i <= this.totalPages) {
-          pagesToShow.push(i);
-        }
+        i <= this.totalPages && pagesToShow.push(i);
       }
     } else {
       pagesToShow = [
@@ -69,6 +74,11 @@ export default class Paginator {
       lastPageBlock: lastPageBlock,
       firstPageBlock: firstPageBlock,
     });
-    // console.log(pagesTemp);s
+    this.rootElement.querySelectorAll('li').forEach(element => {
+      if (element.dataset.page == this.currentPage) {
+        element.classList.add('current');
+        element.removeAttribute('data-page');
+      }
+    });
   }
 }
