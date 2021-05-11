@@ -1,11 +1,18 @@
 import eventsService from './apiEventsService.js';
 import eventCardListTemplate from '../templates/eventCardList.hbs';
+import Paginator from './paginator';
 
 class EventsList {
   constructor(selector) {
     this.listElement = document.querySelector(selector);
-    this.currentPage = 1;
-    this.totalPages = 0;
+    // this.currentPage = 1;
+    // this.totalPages = 0;
+    this.itemsPerPage = 24;
+    this.paginator = new Paginator(
+      this.itemsPerPage,
+      '#paginator',
+      this.getAllEvents,
+    );
   }
   //height: 225  width: 305  ratio: "4_3"   height: 203  width: 305 ratio: "3_2"
   eventDataAdapter(event) {
@@ -35,12 +42,26 @@ class EventsList {
 
   getAllEvents = async () => {
     try {
-      const result = await eventsService.getAllEvents();
+      const result = await eventsService.getAllEvents(
+        this.paginator.page,
+        this.paginator.itemsPerPage,
+      );
+      this.paginator.init(result.page.number, result.page.totalPages);
+      // console.log(result, '---result');
       this.renderList(result._embedded.events);
     } catch (error) {
-      console.log(error);
+      console.log(error, '---error');
     }
   };
+
+  // renderStartEvents() {
+  //   const paginator = new Paginator(
+  //     this.itemsPerPage,
+  //     '#paginator',
+  //     this.getAllEvents,
+  //   );
+  //   this.getAllEvents(paginator);
+  // }
 }
 
 export default EventsList;
