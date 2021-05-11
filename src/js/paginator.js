@@ -13,7 +13,7 @@ export default class Paginator {
     this.eventListeners();
   }
   get page() {
-    return this.currentPage;
+    return this.currentPage - 1;
   }
   get perPage() {
     return this.itemsPerPage;
@@ -29,7 +29,7 @@ export default class Paginator {
   }
 
   setPage(page) {
-    this.currentPage = page;
+    this.currentPage = page + 1;
   }
 
   setToInitial() {
@@ -38,9 +38,12 @@ export default class Paginator {
   }
 
   init(page, totalPages) {
-    this.currentPage = page;
+    this.setPage(page);
     this.totalPages = totalPages;
     this.lastPage = totalPages;
+    // if (totalPages == 1) {
+    //   return;
+    // }
     this.renderPaginator();
   }
 
