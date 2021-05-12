@@ -1,0 +1,77 @@
+.acc-bttn {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+}
+
+.acc-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.acc-modal.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.acc-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.acc-modal__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+  background-color: #fff;
+  transform: scale(0.95);
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.acc-modal.is-open .acc-modal__content {
+  transform: scale(1);
+}
+
+.acc-modal__button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--animation-duration) var(--timing-function);
+  outline: none;
+  background-image: url('./images/acc-icon/icon-close.svg');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.acc-modal__button:hover,
+.acc-modal__button:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}

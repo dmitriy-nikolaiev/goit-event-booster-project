@@ -21,3 +21,4 @@ eventList.getAllEvents();
 // eventList.renderStartEvents();
 // eventsService.getEventDetails('Z698xZbpZ17a4oM').then(res => console.log(res));
 // eventsService.eventSearch('Eagles', 'USA', 1).then(res => console.log(res));
+import './js/account';
