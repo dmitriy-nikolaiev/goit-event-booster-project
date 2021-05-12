@@ -2,7 +2,8 @@
   // margin-top: 65px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 27px;
-  z-index: 50;
-  margin-top: 304px;
+  column-gap: 27px;
+  margin-top: -25px;
+  max-width: 1150px;
+  margin: 0 auto;
 }
