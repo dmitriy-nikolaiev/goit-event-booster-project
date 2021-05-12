@@ -18,5 +18,16 @@ const getAllEvents = async () => {
 // getAllEvents();
 const eventList = new EventsList('.cards-holder');
 eventList.getAllEvents();
+// eventList.renderStartEvents();
 // eventsService.getEventDetails('Z698xZbpZ17a4oM').then(res => console.log(res));
 // eventsService.eventSearch('Eagles', 'USA', 1).then(res => console.log(res));
+//
+//
+
+const searchInput = document.querySelector('#search-events-form');
+searchInput.addEventListener('submit', event => {
+  event.preventDefault();
+  const searchValue = event.target.elements['event'].value.trim();
+  // console.log(searchValue, '---e');
+  eventList.searchQuery = searchValue.trim();
+});
