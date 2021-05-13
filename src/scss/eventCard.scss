@@ -3,18 +3,40 @@
   // height: 312px;
   color: #ffffff;
   text-align: center;
+  position: relative;
+  margin-bottom: 50px;
 
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 50px 0px;
+    width: 153px;
+    height: 143px;
+  }
   .event-image-wrapper {
+    top: 13px;
     width: 180px;
     height: 227px;
     overflow: hidden;
     position: relative;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-bottom: 18px;
 
     .event-image {
       position: absolute;
-      top: 0px;
+      right: 14px;
       left: -60px;
     }
+  }
+
+  .event-data-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .event-title {
@@ -23,10 +45,9 @@
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
-
     text-align: center;
-
     color: #dc56c5;
+    margin-bottom: 5px;
   }
 
   .event-date {
@@ -34,6 +55,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    & :not(:last-child) {
+      margin-bottom: 5px;
+    }
   }
 
   .event-place {
