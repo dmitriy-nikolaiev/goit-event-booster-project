@@ -1,18 +1,18 @@
-
 .main-body-container{
     position: absolute;
+    min-width: 100%;
     background-color: #0E0E0E;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 auto;
 
     @media screen and(min-width: 320px) and (max-width: 768px) {
-        min-width: 320px;
+        min-width: 100%;
         height: 2786px;
         left: 0px;
-        top: 364px;
+        top: 364px;        
         padding-left: 25px;
         padding-right: 25px;
-
 
         background-image: url(./images/body-background/noise-body-mobile.png);
 
@@ -27,10 +27,11 @@
     }
 
     @media screen and(min-width: 768px) and (max-width: 1280px) {
-        min-width: 768px;
+        // min-width: 768px;
         height: 2582px;
         left: 0px;
         top: 364px;
+        
         padding-left: 86px;
         padding-right: 87px;
 
@@ -47,7 +48,7 @@
     }
 
     @media screen and(min-width: 1280px) {
-        min-width: 1280px;
+        // min-width: 1280px;
         height: 1930px;
         left: 0px;
         top: 446px;
