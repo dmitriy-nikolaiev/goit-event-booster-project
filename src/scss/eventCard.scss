@@ -65,5 +65,11 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+
+    & > .fa-map-marker-alt {
+      margin-right: 3px;
+      font-size: 11px;
+      padding-bottom: 1px;
+    }
   }
 }
