@@ -5,7 +5,8 @@ export default {
     const image = images.find(
       image => image.height === 225 && image.width === 305,
     );
-    let venue = 'Without venue';
+
+    let venue = 'No venue';
     if (_embedded && _embedded.venues) {
       venue = _embedded.venues[0].name
         ? _embedded.venues[0].name
@@ -13,6 +14,13 @@ export default {
     } else if (event.place && event.place.city) {
       venue = event.place.city.name;
     }
+
+    // if (event.products) {
+    //   console.log(id, 'id_products');
+    // }
+    // if (event.priceRanges && event.products && event.priceRanges.length > 1) {
+    //   console.log(id, 'id_priceRanges>1');
+    // }
 
     return {
       id,
@@ -23,20 +31,61 @@ export default {
     };
   },
 
-  // getDate(addMonth = 0) {
-  //   // yyyy-MM-dd’T’HH:mm:ssZ. Example: 2015-02-01T10:00:00Z.
-  //   const date = new Date(); //2021-05-23
-  //   if (addMonth > 0) {
-  //     // date.setMonth(date.getMonth() + addMonth);
-  //     date.setDate(date.getDate() + addMonth);
-  //   }
-  //   const yyyy = date.getFullYear();
-  //   // const MM = (date.getMonth() + 1).toString().padStart(2, '0');
-  //   const MM = date.getMonth().toString().padStart(2, '0');
-  //   const dd = date.getDate().toString().padStart(2, '0');
-  //   return `${yyyy}-${MM}-${dd}T00:00:00Z`;
-  //   // return JSON.stringify(date);
-  // },
+  transformEventDetails(event) {
+    const {
+      name,
+      description,
+      info,
+      images,
+      dates,
+      priceRanges,
+      products,
+      _embedded,
+    } = event;
+
+    const eventInfo = info || description || name || '';
+    const eventImages = images.filter(
+      image =>
+        (image.height === 225 && image.width === 305) ||
+        (image.height === 683 && image.width === 1024),
+    );
+
+    let venue = '';
+    let city = '';
+    let country = '';
+    let attractions = [];
+
+    if (_embedded) {
+      if (_embedded.venues) {
+        venue = _embedded.venues[0].name;
+        city = _embedded.venues[0].city.name;
+        country = _embedded.venues[0].country.name;
+      }
+
+      if (_embedded.attractions) {
+        attractions = _embedded.attractions.map(attraction => {
+          return attraction.name;
+        });
+      }
+    } else if (event.place) {
+      city = event.place.city.name;
+      country = event.place.country.name;
+    }
+
+    return {
+      name,
+      eventInfo,
+      eventImages,
+      date: dates.start.localDate,
+      time: dates.start.localTime,
+      city,
+      country,
+      venue,
+      attractions,
+      priceRanges,
+      products,
+    };
+  },
 
   getDatesRange(addDays = 1) {
     const startDate = new Date();
