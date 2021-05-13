@@ -1,37 +1,24 @@
 @media screen and (max-width: 768px) {
-  .acc-bttn {
-    top: 15px;
-    right: 20px;
-    width: 50px;
-    height: 40px;
-  }
-  .acc-modal__content {
+  .sign-up__content {
     min-width: 300px;
     min-height: 400px;
     max-width: 350px;
     max-height: 450px;
     border-radius: 120px 0px;
   }
-  .acc-modal__button {
+  .sign-up__close-bttn {
     top: 15px;
     right: 15px;
     width: 17px;
     height: 17px;
   }
-  .acc-modal__label {
+  .sign-up__label {
     font-size: 20px;
     line-height: 24px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1280px) {
-  .acc-bttn {
-    top: 25px;
-    right: 30px;
-    width: 100px;
-    height: 40px;
-  }
-
-  .acc-modal__content {
+  .sign-up__content {
     min-width: 350px;
     min-height: 450px;
     max-width: 400;
@@ -39,26 +26,20 @@
     border-radius: 200px 0px;
   }
 
-  .acc-modal__button {
+  .sign-up__close-bttn {
     top: 15px;
     right: 15px;
     width: 17px;
     height: 17px;
   }
 
-  .acc-modal__label {
+  .sign-up__label {
     font-size: 20px;
     line-height: 24px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .acc-bttn {
-    top: 25px;
-    right: 30px;
-    width: 125px;
-    height: 40px;
-  }
-  .acc-modal__content {
+  .sign-up__content {
     min-width: 400px;
     min-height: 500px;
     max-width: 450;
@@ -66,26 +47,20 @@
     border-radius: 200px 0px;
   }
 
-  .acc-modal__button {
+  .sign-up__close-bttn {
     top: 20px;
     right: 20px;
     width: 25px;
     height: 25px;
   }
 
-  .acc-modal__label {
+  .sign-up__label {
     font-size: 24px;
     line-height: 29px;
   }
 }
-.acc-bttn {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.2);
-  border: rgb(255, 255, 255);
-  border-radius: 20px;
-}
 
-.acc-modal {
+.sign-up-modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,12 +74,12 @@
   z-index: 12;
 }
 
-.acc-modal.is-open {
+.sign-up-modal.is-open {
   opacity: 1;
   pointer-events: initial;
 }
 
-.acc-modal__overlay {
+.sign-up__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -113,7 +88,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.acc-modal__content {
+.sign-up__content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +97,7 @@
   transition: transform var(--animation-duration) var(--timing-function);
 }
 
-.acc-modal__button {
+.sign-up__close-bttn {
   position: absolute;
   display: flex;
   align-items: center;
@@ -143,22 +118,22 @@
   background-repeat: no-repeat;
 }
 
-.acc-modal__button:hover,
-.acc-modal__button:focus {
+.sign-up__close-bttn:hover,
+.sign-up__close-bttn:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.acc-modal__list {
+.sign-up__list {
   list-style: none;
 }
-.acc-modal__label {
+.sign-up__label {
   color: #dc56c5;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
   text-align: center;
 }
-.acc-modal__input {
+.sign-up__input {
   max-width: 448px;
   height: 30px;
   width: 100%;
@@ -167,7 +142,7 @@
   padding-left: 10px;
   margin-bottom: 10px;
 }
-.acc-modal__submit-bttn {
+.sign-up__submit-bttn {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
@@ -178,20 +153,4 @@
   height: 40px;
   background: #4c00fe;
   border-radius: 5px;
-}
-.acc-modal__logup-link {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 13px;
-}
-.acc-modal__logup-link > span {
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.54);
-  cursor: pointer;
-}
-.bttn-container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
 }
