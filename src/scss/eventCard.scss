@@ -1,20 +1,58 @@
 .event-card {
+  opacity: 0;
   width: 194px;
   // height: 312px;
   color: #ffffff;
   text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+  animation: zoom 1.5s 1;
+  animation-fill-mode: forwards;
+  height: 100%;
+  // transform: scale(1);
+  // transition: all, 3000ms, cubic-bezier(0.4, 0, 0.2, 1);
 
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 50px 0px;
+    width: 153px;
+    height: 143px;
+  }
   .event-image-wrapper {
+    top: 13px;
     width: 180px;
     height: 227px;
     overflow: hidden;
     position: relative;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-bottom: 18px;
 
     .event-image {
       position: absolute;
-      top: 0px;
+      right: 14px;
       left: -60px;
     }
+  }
+
+  .event-data {
+    position: absolute;
+    top: 88%;
+    // bottom: 0;
+  }
+  .event-data-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .event-title {
@@ -23,10 +61,9 @@
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
-
     text-align: center;
-
     color: #dc56c5;
+    margin-bottom: 5px;
   }
 
   .event-date {
@@ -34,6 +71,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    margin-bottom: 5px;
   }
 
   .event-place {
@@ -41,5 +79,34 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+
+    .fa-map-marker-alt {
+      font-size: 12px;
+      padding-bottom: 1px;
+      margin-right: 3px;
+    }
+  }
+}
+//
+@for $i from 1 through 24 {
+  .event-card {
+    // :nth-child(1-24)
+
+    &:nth-child(#{$i}) {
+      animation-delay: $i * (0.12s);
+    }
+  }
+}
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
