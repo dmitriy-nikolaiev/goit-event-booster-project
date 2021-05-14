@@ -52,7 +52,7 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   const searchValue = event.target.elements['event'].value.trim();
   const countryValue = event.target.elements['country'].value;
-  console.log(countryValue, '--countryValue');
+  // console.log(countryValue, '--countryValue');
   // console.log(event.target.elements['country'], '---input-country');
   eventList.searchEvents(searchValue, countryValue);
 });
@@ -61,5 +61,5 @@ const modalRef = document.querySelector('.backdropEvent');
 const eventListRef = document.querySelector('.cards-holder');
 eventListRef.addEventListener('click', e => {
   const cardRef = e.target.closest('.event-card');
-  console.log(cardRef.dataset.id);
+  // console.log(cardRef.dataset.id);
 });
