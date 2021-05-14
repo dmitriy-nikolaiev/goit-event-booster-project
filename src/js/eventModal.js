@@ -1,6 +1,6 @@
 import eventModal from '../templates/eventModal.hbs';
 
-const modalEventContainer = document.querySelector('body');
+const modalEventContainer = document.body;
 
 function modalAppend() {
   modalEventContainer.insertAdjacentHTML('afterbegin', eventModal());
