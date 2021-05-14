@@ -7,13 +7,13 @@ function modalAppend() {
 }
 modalAppend();
 
-const openModalEvent = document.getElementById('myBtn');
+// const openModalEvent = document.getElementById('myBtn');
 const closeModal = document.querySelector('#close_modal_event');
 const backdrop = document.querySelector('.backdropEvent');
 const modalWindow = document.querySelector('.modal-event-card');
 
 closeModal.addEventListener('click', closeModalEvent);
-openModalEvent.addEventListener('click', openModalFunc);
+// openModalEvent.addEventListener('click', openModalFunc);
 
 function openModalFunc(evt) {
   evt.preventDefault();
