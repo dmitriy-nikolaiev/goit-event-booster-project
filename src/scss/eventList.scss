@@ -1,29 +1,38 @@
+.main{
+  position: relative;
+  display: block;
+  min-width: 100%;
+  height: auto;
+}
+
 .cards-holder {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  height: auto;
 
-  @media screen and(min-width: 320px) and (max-width: 768px) {
-      min-width: 280px;
-      height: 2635px;
-      left: 25px;
-      top: 304px;
-      margin-bottom: 60px;
+  @media screen and (max-width: 768px) {
+    left: 25px;
+    top: -60px;
+
+    margin-bottom: 60px;
   }
 
   @media screen and(min-width: 768px) and (max-width: 1280px) {
-      min-width: 610px;
-      height: 2454px;
-      left: 85px;
-      top: 304px;        
+    min-width: 610px;
+    left: 85px;
+    top: -60px;
+
+    margin-bottom: 60px;      
   }
 
   @media screen and(min-width: 1280px) {
-      min-width: 946px;
-      height: 1760px;
-      left: 173px;
-      top: 387px;
-      margin-bottom: 80px;
+    min-width: 946px;
+    left: 173px;
+    top: -59px;
+
+    margin-bottom: 80px;
   }
 }
 
