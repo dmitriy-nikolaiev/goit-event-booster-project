@@ -13,9 +13,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //Get element
-const modalMailRef = document.getElementById('mail');
-const modalPasswordRef = document.getElementById('password');
+const modalMailRef = document.getElementById('logInMail');
+const modalPasswordRef = document.getElementById('logInPassword');
 const modalLogInBttnRef = document.querySelector('.acc-modal__submit-bttn');
+
+const signUpMailRef = document.getElementById('signUpMail');
+const signUpPasswordRef = document.getElementById('signUpPassword');
+const signUpBttnRef = document.querySelector('.sign-up__submit-bttn');
 
 modalLogInBttnRef.addEventListener('click', e => {
   e.preventDefault();
@@ -25,4 +29,22 @@ modalLogInBttnRef.addEventListener('click', e => {
   // Sign in
   const promise = auth.signInWithEmailAndPassword(mail, password);
   promise.catch(e => console.log(e.message));
+});
+
+signUpBttnRef.addEventListener('click', e => {
+  e.preventDefault();
+  const mail = signUpMailRef.value;
+  const password = signUpPasswordRef.value;
+  const auth = firebase.auth();
+  // Sign in
+  const promise = auth.createUserWithEmailAndPassword(mail, password);
+  promise.catch(e => console.log(e.message));
+});
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    console.log(firebaseUser);
+  } else {
+    console.log('not logged in');
+  }
 });
