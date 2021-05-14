@@ -1,10 +1,21 @@
 .event-card {
+  opacity: 0;
   width: 194px;
   // height: 312px;
   color: #ffffff;
   text-align: center;
   position: relative;
   margin-bottom: 50px;
+  animation: zoom 1.5s 1;
+  animation-fill-mode: forwards;
+  height: 100%;
+  // transform: scale(1);
+  // transition: all, 3000ms, cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
+  }
 
   &::after {
     content: '';
@@ -33,6 +44,11 @@
     }
   }
 
+  .event-data {
+    position: absolute;
+    top: 88%;
+    // bottom: 0;
+  }
   .event-data-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -55,9 +71,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-    & :not(:last-child) {
-      margin-bottom: 5px;
-    }
+    margin-bottom: 5px;
   }
 
   .event-place {
@@ -65,5 +79,34 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+
+    .fa-map-marker-alt {
+      font-size: 12px;
+      padding-bottom: 1px;
+      margin-right: 3px;
+    }
+  }
+}
+//
+@for $i from 1 through 24 {
+  .event-card {
+    // :nth-child(1-24)
+
+    &:nth-child(#{$i}) {
+      animation-delay: $i * (0.12s);
+    }
+  }
+}
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
