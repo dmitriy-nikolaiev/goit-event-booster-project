@@ -1,4 +1,3 @@
-import Handlebars from 'handlebars';
 import paginatorTemplate from '../templates/paginator.hbs';
 
 export default class Paginator {
@@ -6,6 +5,7 @@ export default class Paginator {
   firstPage = 1;
   currentPage = 1;
   totalPages = 0;
+  pagesScroll = 1;
   constructor(itemsPerPage, selector, callback = () => {}) {
     this.itemsPerPage = itemsPerPage;
     this.rootElement = document.querySelector(selector);
@@ -24,8 +24,23 @@ export default class Paginator {
       if (e.target.nodeName == 'LI' && e.target.dataset.page) {
         this.currentPage = Number(e.target.dataset.page);
         this.callback();
+        scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
       }
     });
+    // if (this.rootElement.querySelector('.previous-5')) {
+    //   this.rootElement
+    //     .querySelector('.previous-5')
+    //     .addEventListener('click', e => {});
+    // }
+
+    // if (this.rootElement.querySelector('.next-5')) {
+    //   this.rootElement
+    //     .querySelector('.next-5')
+    //     .addEventListener('click', e => {});
+    // }
   }
 
   setPage(page) {
@@ -41,9 +56,10 @@ export default class Paginator {
     this.setPage(page);
     this.totalPages = totalPages;
     this.lastPage = totalPages;
-    // if (totalPages == 1) {
-    //   return;
-    // }
+    if (totalPages == 1) {
+      this.rootElement.innerHTML = '';
+      return;
+    }
     this.renderPaginator();
   }
 
