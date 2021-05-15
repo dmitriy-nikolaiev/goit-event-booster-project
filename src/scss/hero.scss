@@ -1,69 +1,80 @@
-.title-container {
+.title-container{
   position: absolute;
+    @media screen and (max-width: 768px) {
+      width: 212px;
+      height: 44px;
+      left: 53px;
+      top: 78px;
 
-  @media screen and(min-width: 320px) and (max-width: 768px) {
-    width: 212px;
-    height: 44px;
-    left: 53px;
-    top: 78px;
-
-    margin-bottom: 25px;
+      margin-bottom: 25px;
   }
 
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    width: 353px;
-    height: 74px;
-    left: 208px;
-    top: 40px;
+    @media screen and(min-width: 768px) and (max-width: 1280px) {
+      width: 353px;
+      height: 74px;
+      left: 208px;
+      top: 40px;
 
-    margin-bottom: 27px;
+      margin-bottom: 27px;
   }
-
-  @media screen and(min-width: 1280px) {
-    width: 588px;
-    height: 122px;
-    left: 345px;
-    top: 40px;
-    margin-bottom: 52px;
+  
+    @media screen and(min-width: 1280px) {
+      width: 590px;
+      height: 122px;
+      left: 345px;
+      top: 40px;
+      
+      margin-bottom: 52px;
   }
 }
 
-.input-container {
-  position: absolute;
-  width: 270px;
-  height: 40px;
-
-  @media screen and(min-width: 320px) and (max-width: 768px) {
-    left: 25px;
-    top: 147px;
-    margin-bottom: 25px;
-  }
-
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    left: 99px;
-    top: 141px;
-    margin-bottom: 0;
-    margin-right: 30px;
-  }
-
-  @media screen and(min-width: 1280px) {
-    left: 355px;
-    top: 214px;
+.form-container{
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      width: 270px;
+      height: 105px;
+      left: 25px;
+      top: 147px;
   }
 }
 
-#input-event {
+.input-container{
   width: 270px;
   height: 40px;
 
-  // background: rgba(255, 255, 255, 0.2);
+    @media screen and (max-width: 767px) {
+      margin-bottom: 25px;
+  }
+
+    @media screen and(min-width: 768px) and (max-width: 1280px) {
+      position: absolute;
+      left: 99px;
+      top: 141px;
+      margin-bottom: 0;
+      margin-right: 30px;
+  }
+  
+    @media screen and(min-width: 1280px) {
+      position: absolute;
+      left: 355px;
+      top: 214px;
+      margin-bottom: 0;
+      margin-right: 30px;
+  }
+}
+
+#input-event{
+  width: 270px;
+  height: 40px;
+
+  background: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  padding-left: 25px;
+  
   border-radius: 20px;
 }
 
-.input-search-label {
+.input-search-label{
   position: absolute;
   width: 122px;
   height: 20px;
@@ -79,28 +90,24 @@
   color: #939393;
 }
 
-.select {
-  position: absolute;
+.select{
   width: 270px;
   height: 40px;
 
-  @media screen and(min-width: 320px) and (max-width: 768px) {
-    left: 25px;
-    top: 212px;
+    @media screen and(min-width: 768px) and (max-width: 1280px) {
+      position: absolute;
+      left: 399px;
+      top: 141px;
   }
-
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    left: 399px;
-    top: 141px;
-  }
-
-  @media screen and(min-width: 1280px) {
-    left: 655px;
-    top: 214px;
+  
+    @media screen and(min-width: 1280px) {
+      position: absolute;
+      left: 655px;
+      top: 214px;
   }
 }
 
-#input-country {
+#input-country{
   background: none;
   border: none;
 
@@ -115,7 +122,7 @@
   border-radius: 20px;
 }
 
-.select > select:first-child {
+.select> select:first-child{
   padding-left: 30px;
 
   font-family: Montserrat;

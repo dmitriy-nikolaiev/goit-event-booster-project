@@ -1,11 +1,67 @@
+.main {
+  // position: relative;
+  display: block;
+  min-width: 100%;
+  height: auto;
+}
+
 .cards-holder {
+  // position: absolute;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 27px;
   grid-row-gap: 50px;
-  margin-top: -25px;
   max-width: 1150px;
   margin: 0 auto;
   list-style-type: none;
-  margin-bottom: 80px;
+  // margin-bottom: 80px;
+
+  @media screen and (max-width: 768px) {
+    // left: 25px;
+    // top: -60px;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 60px;
+  }
+
+  @media screen and(min-width: 768px) and (max-width: 1280px) {
+    min-width: 610px;
+    // left: 85px;
+    // top: -60px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    margin-bottom: 60px;
+  }
+
+  @media screen and(min-width: 1280px) {
+    min-width: 946px;
+    // left: 173px;
+    // top: -59px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    margin-bottom: 80px;
+  }
+}
+
+.event-card {
+  @media screen and(min-width: 320px) and (max-width: 768px) {
+    margin-right: 4px;
+    margin-bottom: 30px;
+
+    // flex-basis: calc(100% / 2 - 4px);
+  }
+
+  @media screen and(min-width: 768px) and (max-width: 1280px) {
+    margin-right: 13px;
+    margin-bottom: 45px;
+
+    // flex-basis: calc(100% / 3 - 13px);
+  }
+
+  @media screen and(min-width: 1280px) {
+    margin-right: 56px;
+    margin-bottom: 50px;
+
+    // flex-basis: calc(100% / 4 - 56px);
+  }
 }
