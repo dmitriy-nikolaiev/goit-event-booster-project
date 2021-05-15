@@ -1,35 +1,38 @@
-import accModal from '../templates/accModal.hbs';
+import logInModal from '../templates/logInModal.hbs';
 import signUpModal from '../templates/signUpModal.hbs';
+import persAccModal from '../templates/accModal.hbs';
 
-const accModalDivRef = document.querySelector('.acc-modal');
-accModalDivRef.insertAdjacentHTML('beforeend', accModal());
+const logInModalDivRef = document.querySelector('.log-in-modal');
+logInModalDivRef.insertAdjacentHTML('beforeend', logInModal());
 const signUpModalDivRef = document.querySelector('.sign-up-modal');
 signUpModalDivRef.insertAdjacentHTML('beforeend', signUpModal());
+const persAccModalDivRef = document.querySelector('.pers-acc-modal');
+persAccModalDivRef.insertAdjacentHTML('beforeend', persAccModal());
 
-const accBttn = document.querySelector('.acc-bttn');
-const bttnCloseModalRef = document.querySelector('.acc-modal__button');
-const modalOverlayRef = document.querySelector('.acc-modal__overlay');
+const logInLinkBttnRef = document.querySelector('.acc-bttn');
+const logInCloseBttnRef = document.querySelector('.log-in__close-bttn');
+const logInOverlayRef = document.querySelector('.log-in__overlay');
 
-const modalSignUpRef = document.querySelector('.acc-modal__logup-span');
+const signUpLinkRef = document.querySelector('.log-in__logup-span');
 const signUpOverlayRef = document.querySelector('.sign-up__overlay');
 const signUpCloseBttnRef = document.querySelector('.sign-up__close-bttn');
 
-accBttn.addEventListener('click', openModal);
-bttnCloseModalRef.addEventListener('click', closeModal);
-modalOverlayRef.addEventListener('click', onBackDropClick);
+logInLinkBttnRef.addEventListener('click', openModal);
+logInCloseBttnRef.addEventListener('click', closeModal);
+logInOverlayRef.addEventListener('click', onBackDropClick);
 
-modalSignUpRef.addEventListener('click', changeModal);
+signUpLinkRef.addEventListener('click', changeModal);
 signUpOverlayRef.addEventListener('click', onBackDropClickSignUp);
 signUpCloseBttnRef.addEventListener('click', closeSignUp);
 
 function openModal() {
-  accModalDivRef.classList.add('is-open');
+  logInModalDivRef.classList.add('is-open');
   window.addEventListener('keydown', onPressEsc);
 }
 
 function closeModal() {
   window.removeEventListener('keydown', onPressEsc);
-  accModalDivRef.classList.remove('is-open');
+  logInModalDivRef.classList.remove('is-open');
 }
 function onBackDropClick(event) {
   if (event.target === event.currentTarget) {

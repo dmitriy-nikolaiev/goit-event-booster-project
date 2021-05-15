@@ -1,66 +1,52 @@
 @media screen and (max-width: 768px) {
-  .sign-up__content {
+  .pers-acc__content {
     min-width: 300px;
     min-height: 400px;
-    max-width: 350px;
+    max-width: 768px;
     max-height: 450px;
     border-radius: 120px 0px;
   }
-  .sign-up__close-bttn {
+  .pers-acc__close-bttn {
     top: 15px;
     right: 15px;
     width: 17px;
     height: 17px;
   }
-  .sign-up__label {
-    font-size: 20px;
-    line-height: 24px;
-  }
 }
 @media screen and (min-width: 768px) and (max-width: 1280px) {
-  .sign-up__content {
-    min-width: 350px;
+  .pers-acc__content {
+    min-width: 768px;
     min-height: 450px;
-    max-width: 400px;
+    max-width: 1280px;
     max-height: 500px;
     border-radius: 200px 0px;
   }
 
-  .sign-up__close-bttn {
+  .pers-acc__close-bttn {
     top: 15px;
     right: 15px;
     width: 17px;
     height: 17px;
   }
-
-  .sign-up__label {
-    font-size: 20px;
-    line-height: 24px;
-  }
 }
 @media screen and (min-width: 1280px) {
-  .sign-up__content {
-    min-width: 400px;
+  .pers-acc__content {
+    min-width: 1280px;
     min-height: 500px;
-    max-width: 450px;
+    max-width: 1280px;
     max-height: 550px;
     border-radius: 200px 0px;
   }
 
-  .sign-up__close-bttn {
+  .pers-acc__close-bttn {
     top: 20px;
     right: 20px;
     width: 25px;
     height: 25px;
   }
-
-  .sign-up__label {
-    font-size: 24px;
-    line-height: 29px;
-  }
 }
 
-.sign-up-modal {
+.pers-acc-modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,12 +60,12 @@
   z-index: 12;
 }
 
-.sign-up-modal.is-open {
+.pers-acc-modal.is-open {
   opacity: 1;
   pointer-events: initial;
 }
 
-.sign-up__overlay {
+.pers-acc__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +74,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.sign-up__content {
+.pers-acc__content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +83,7 @@
   transition: transform var(--animation-duration) var(--timing-function);
 }
 
-.sign-up__close-bttn {
+.pers-acc__close-bttn {
   position: absolute;
   display: flex;
   align-items: center;
@@ -118,31 +104,13 @@
   background-repeat: no-repeat;
 }
 
-.sign-up__close-bttn:hover,
-.sign-up__close-bttn:focus {
+.pers-acc__close-bttn:hover,
+.pers-acc__close-bttn:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.sign-up__list {
-  list-style: none;
-}
-.sign-up__label {
-  color: #dc56c5;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  text-align: center;
-}
-.sign-up__input {
-  max-width: 448px;
-  height: 30px;
-  width: 100%;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  padding-left: 10px;
-  margin-bottom: 10px;
-}
-.sign-up__submit-bttn {
+.pers-acc__out-bttn {
+  position: absolute;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
@@ -153,11 +121,6 @@
   height: 40px;
   background: #4c00fe;
   border-radius: 5px;
-}
-.sign-up__text {
-  font-size: 10px;
-}
-.sign-up__item-checkbox {
-  display: flex;
-  margin-bottom: 10px;
+  bottom: 15px;
+  left: 15px;
 }
