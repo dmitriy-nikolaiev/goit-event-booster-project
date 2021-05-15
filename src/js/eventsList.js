@@ -2,6 +2,7 @@ import eventsService from './apiEventsService.js';
 import dataAdapters from './apiDataAdapters';
 import eventCardListTemplate from '../templates/eventCardList.hbs';
 import Paginator from './paginator';
+import { showModalDetails } from './eventModal';
 
 class EventsList {
   constructor(selector) {
@@ -19,9 +20,39 @@ class EventsList {
   renderList(events) {
     // console.log(events, '---events');
     this.listElement.innerHTML = eventCardListTemplate(
-      events.map(event => dataAdapters.transformEventData(event)),
+      events.map(event => {
+        const temp = dataAdapters.transformEventData(event);
+        // console.log(temp);
+        return temp;
+      }),
     );
+
+    events.forEach(event => {
+      const element = this.listElement.querySelector(
+        '#event-element-' + event.id,
+      );
+      const eventCopy = event;
+      const _this = this;
+      element.addEventListener('click', function (event) {
+        _this.loadDetails(eventCopy.id);
+      });
+    });
   }
+
+  loadDetails(id) {
+    this.detailsQueryHandler(id);
+  }
+
+  detailsQueryHandler = async id => {
+    try {
+      const resultEvent = await eventsService.getEventDetails(id);
+      // console.log(result, '---queryHandler');
+      showModalDetails(resultEvent);
+    } catch (error) {
+      // TODO: Dislay error
+      console.log(error, '---errorGetAll');
+    }
+  };
 
   queryHandler = async () => {
     try {
