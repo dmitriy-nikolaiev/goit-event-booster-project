@@ -1,0 +1,126 @@
+@media screen and (max-width: 768px) {
+  .pers-acc__content {
+    min-width: 300px;
+    min-height: 400px;
+    max-width: 768px;
+    max-height: 450px;
+    border-radius: 120px 0px;
+  }
+  .pers-acc__close-bttn {
+    top: 15px;
+    right: 15px;
+    width: 17px;
+    height: 17px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .pers-acc__content {
+    min-width: 768px;
+    min-height: 450px;
+    max-width: 1280px;
+    max-height: 500px;
+    border-radius: 200px 0px;
+  }
+
+  .pers-acc__close-bttn {
+    top: 15px;
+    right: 15px;
+    width: 17px;
+    height: 17px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .pers-acc__content {
+    min-width: 1280px;
+    min-height: 500px;
+    max-width: 1280px;
+    max-height: 550px;
+    border-radius: 200px 0px;
+  }
+
+  .pers-acc__close-bttn {
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.pers-acc-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.pers-acc-modal.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.pers-acc__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pers-acc__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  transform: scale(0.95);
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.pers-acc__close-bttn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--animation-duration) var(--timing-function);
+  outline: none;
+  background-image: url('./images/acc-icon/close.svg');
+
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.pers-acc__close-bttn:hover,
+.pers-acc__close-bttn:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pers-acc__out-bttn {
+  position: absolute;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  width: 145px;
+  height: 40px;
+  background: #4c00fe;
+  border-radius: 5px;
+  bottom: 15px;
+  left: 15px;
+}
