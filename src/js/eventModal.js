@@ -2,21 +2,22 @@ import eventModal from '../templates/eventModal.hbs';
 
 const modalEventContainer = document.body;
 
-function modalAppend() {
-  modalEventContainer.insertAdjacentHTML('afterbegin', eventModal());
+let closeModal;
+let backdrop;
+let modalWindow;
+
+export function showModalDetails(event) {
+  modalEventContainer.insertAdjacentHTML('afterbegin', eventModal(event));
+
+  closeModal = document.querySelector('#close_modal_event');
+  backdrop = document.querySelector('.backdropEvent');
+  modalWindow = document.querySelector('.modal-event-card');
+
+  closeModal.addEventListener('click', closeModalEvent);
+  openModalFunc();
 }
-modalAppend();
 
-// const openModalEvent = document.getElementById('myBtn');
-const closeModal = document.querySelector('#close_modal_event');
-const backdrop = document.querySelector('.backdropEvent');
-const modalWindow = document.querySelector('.modal-event-card');
-
-closeModal.addEventListener('click', closeModalEvent);
-// openModalEvent.addEventListener('click', openModalFunc);
-
-function openModalFunc(evt) {
-  evt.preventDefault();
+function openModalFunc() {
   backdrop.classList.remove('is-hidden');
   modalWindow.classList.remove('animation-close');
   modalWindow.classList.add('animation-open');
@@ -28,6 +29,7 @@ function closeModalEvent() {
   modalWindow.classList.remove('animation-open');
   modalWindow.classList.add('animation-close');
   backdrop.classList.add('is-hidden');
+  modalWindow.innerHTML = '';
 }
 function closeModalOnBackdropEvent(event) {
   if (event.target === backdrop) {
@@ -39,4 +41,8 @@ function onEscKeydown(event) {
   if (event.code === 'Escape') {
     closeModalEvent();
   }
+}
+
+function showModal(id) {
+  alert(id);
 }

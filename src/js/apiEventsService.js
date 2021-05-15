@@ -24,7 +24,7 @@ export default {
     const data = request(
       `${BASE_URL}events/${id}.json?size=1&apikey=${API_KEY}`,
     );
-    console.log(data, '---dataID');
+    //console.log(data, '---dataID');
     return data;
   },
 
