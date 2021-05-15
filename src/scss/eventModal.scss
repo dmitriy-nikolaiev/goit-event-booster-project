@@ -1,0 +1,307 @@
+body {
+  text-align: center;
+  font-family: Montserrat;
+}
+//верхнее изображение
+.event_content_icon {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  background-color: #878686;
+  margin-bottom: 18px;
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    margin-top: 28px;
+    margin-bottom: 43px;
+    width: 70px;
+    height: 70px;
+  }
+  @media screen and(min-width: 1280px) {
+    margin-top: 62px;
+    margin-bottom: 41px;
+    width: 132px;
+    height: 132px;
+  }
+}
+//крестик
+.close_modal_event {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+//бекдроп
+.backdropEvent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 13, 29, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 111;
+  opacity: 1;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* .backdropProduct.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.2) translateY(-50%);
+} */
+//вся карточка
+.modal-event-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) translateY(0);
+  background-color: #fff2fd;
+  padding: 75px 17px;
+  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 150px 0 150px 0;
+  text-align: center;
+
+  @media screen and(max-width: 767px) {
+    width: 272px;
+  }
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    width: 595px;
+    padding: 0 50px 0 50px;
+    border-radius: 300px 0 300px 0;
+  }
+  @media screen and(min-width: 1280px) {
+    width: 930px;
+    height: 1023px;
+    padding: 0 30px 0 30px;
+    border-radius: 300px 0 300px 0;
+  }
+}
+
+//анимация модалки
+.animation-open {
+  animation-name: zoom-in;
+  animation-duration: 0.8s;
+}
+.animation-close {
+  animation-name: zoom-out;
+  animation-duration: 0.7s;
+}
+
+@keyframes zoom-in {
+  from {
+    margin-left: -30%;
+    /* transform: scale(0.5); */
+  }
+  to {
+    margin-left: 0%;
+    /* transform: scale(1); */
+  }
+}
+@keyframes zoom-out {
+  from {
+    margin-left: 0%;
+    /* transform: scale(1); */
+  }
+  to {
+    margin-left: -30%;
+    /* transform: scale(0.5); */
+  }
+}
+
+.event_content_icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+.event_info_title,
+.event_date_title,
+.event_place_title,
+.event_headliner_title,
+.event_price_title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  color: #dc56c5;
+
+  margin-bottom: 5px;
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    text-align: left;
+  }
+  @media screen and(min-width: 1280px) {
+    font-size: 24px;
+    line-height: 29px;
+    text-align: left;
+    margin-bottom: 7px;
+  }
+}
+.event_info_text,
+.event_date_text,
+.event_place_text,
+.event_headliner_text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #0e0e0e;
+  margin-bottom: 10px;
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    text-align: left;
+    padding-right: 17px;
+  }
+  @media screen and(min-width: 1280px) {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-right: 30px;
+  }
+}
+.event_price,
+.event_date_text_up,
+.event_place_text_up {
+  @media screen and(min-width: 768px) {
+    text-align: left;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  @media screen and(min-width: 1280px) {
+    padding-bottom: 5px;
+  }
+}
+
+.event_price_container {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  @media screen and(min-width: 1280px) {
+    margin-bottom: 20px;
+  }
+}
+.event_price_text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #0e0e0e;
+  align-items: center;
+
+  margin-left: 13px;
+  @media screen and(min-width: 1280px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+.event_price_svg {
+  @media screen and(min-width: 1280px) {
+    width: 30px;
+    height: 20px;
+  }
+}
+.more_about_author {
+  margin-bottom: 100px;
+}
+.buy_tickets_wraper {
+  display: flex;
+  justify-content: center;
+
+  @media screen and(min-width: 768px) {
+    justify-content: left;
+  }
+}
+.buy_tickets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 19px;
+  background-color: #4c00fe;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  &:hover {
+    background-color: #dc56c5;
+  }
+}
+.more_about_author_wraper {
+  display: flex;
+  justify-content: center;
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    margin-top: 43px;
+    margin-bottom: 56px;
+  }
+  @media screen and(min-width: 1280px) {
+    margin-top: 45px;
+    margin-bottom: 52px;
+  }
+}
+.more_about_author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 3px;
+  border: 1px solid #4c00fe;
+  color: #4c00fe;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  &:hover {
+    border: 1px solid #dc56c5;
+  }
+  @media screen and(min-width: 1280px) {
+    padding: 10px 15px;
+  }
+}
+.main_img_conteiner {
+  display: none;
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    display: block;
+    width: 233px;
+    height: 416px;
+    background-color: grey;
+  }
+  @media screen and(min-width: 1280px) {
+    display: block;
+    width: 360px;
+    height: 641px;
+    background-color: grey;
+  }
+}
+.allinfo_about_event {
+  @media screen and(min-width: 768px) {
+    display: inline-flex;
+    justify-content: flex-start;
+  }
+}
+.description_event {
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    width: 280px;
+    margin-left: 60px;
+  }
+
+  @media screen and(min-width: 1280px) {
+    width: 450px;
+    margin-left: 30px;
+  }
+}

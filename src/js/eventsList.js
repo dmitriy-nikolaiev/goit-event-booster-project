@@ -6,30 +6,14 @@ import Paginator from './paginator';
 class EventsList {
   constructor(selector) {
     this.listElement = document.querySelector(selector);
-    this._searchQuery = '';
-    // this.currentPage = 1;
-    // this.totalPages = 0;
+    this.searchQuery = '';
+    this.countryCode = '';
     this.itemsPerPage = 24;
     this.paginator = new Paginator(
       this.itemsPerPage,
       '#paginator',
-      this.getAllEvents,
+      this.queryHandler,
     );
-  }
-
-  get searchQuery() {
-    return this._searchQuery;
-  }
-
-  set searchQuery(query) {
-    this._searchQuery = query;
-    if (query === '') {
-      this.getAllEvents();
-      return;
-    }
-    this.paginator.callback = this.searchByKeyword;
-    this.paginator.setToInitial();
-    this.searchByKeyword();
   }
 
   renderList(events) {
@@ -39,42 +23,21 @@ class EventsList {
     );
   }
 
-  getAllEvents = async () => {
-    // console.log('getAll');
-    try {
-      this.paginator.callback = this.getAllEvents;
-      const result = await eventsService.getStartEvents(
-        this.paginator.page,
-        this.paginator.itemsPerPage,
-      );
-      if (result._embedded) {
-        this.paginator.init(result.page.number, result.page.totalPages);
-        // console.log(result, '---result getAllEvents');
-        this.renderList(result._embedded.events);
-      } else {
-        // TODO: Display not found
-        console.log('Non Found');
-      }
-    } catch (error) {
-      // TODO: Dislay error
-      console.log(error, '---errorGetAll');
-    }
-  };
-
-  searchByKeyword = async () => {
+  queryHandler = async () => {
     try {
       const result = await eventsService.eventSearch(
-        this._searchQuery,
+        this.searchQuery,
+        this.countryCode,
         this.paginator.page,
         this.paginator.itemsPerPage,
       );
-      // console.log(result, '---resultByKeyword');
+      // console.log(result, '---queryHandler');
       if (result._embedded) {
         this.paginator.init(result.page.number, result.page.totalPages);
         this.renderList(result._embedded.events);
       } else {
         // TODO: Display not found
-        console.log('Non Found');
+        console.log('Not Found');
       }
     } catch (error) {
       // TODO: Dislay error
@@ -82,7 +45,12 @@ class EventsList {
     }
   };
 
-  searchByCountry = async countryCode => {};
+  searchEvents(queryString = '', countryCode = '') {
+    this.searchQuery = queryString;
+    this.countryCode = countryCode;
+    this.paginator.setToInitial();
+    this.queryHandler();
+  }
 }
 
 export default EventsList;
