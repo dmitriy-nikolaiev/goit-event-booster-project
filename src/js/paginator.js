@@ -5,7 +5,7 @@ export default class Paginator {
   firstPage = 1;
   currentPage = 1;
   totalPages = 0;
-  pagesScroll = 1;
+  pageScroller = 1;
   constructor(itemsPerPage, selector, callback = () => {}) {
     this.itemsPerPage = itemsPerPage;
     this.rootElement = document.querySelector(selector);
@@ -29,31 +29,42 @@ export default class Paginator {
           behavior: 'smooth',
         });
       }
-    });
-    // if (this.rootElement.querySelector('.previous-5')) {
-    //   this.rootElement
-    //     .querySelector('.previous-5')
-    //     .addEventListener('click', e => {});
-    // }
+      if (e.target.classList.contains('next-5')) {
+        this.pageScroller += 5;
+        this.pageScroller =
+          this.pageScroller > this.totalPages
+            ? this.totalPages
+            : this.pageScroller;
 
-    // if (this.rootElement.querySelector('.next-5')) {
-    //   this.rootElement
-    //     .querySelector('.next-5')
-    //     .addEventListener('click', e => {});
-    // }
+        this.renderPaginator(this.pageScroller);
+      }
+      if (e.target.classList.contains('previous-5')) {
+        this.pageScroller -= 5;
+        this.pageScroller =
+          this.pageScroller < this.firstPage
+            ? this.firstPage
+            : this.pageScroller;
+
+        this.renderPaginator(this.pageScroller);
+      }
+    });
   }
 
   setPage(page) {
     this.currentPage = page + 1;
+    this.pageScroller = this.currentPage;
+    return this.currentPage;
   }
 
   setToInitial() {
     this.currentPage = this.firstPage;
+    this.pageScroller = this.firstPage;
     return this.currentPage;
   }
 
   init(page, totalPages) {
     this.setPage(page);
+
     this.totalPages = totalPages;
     this.lastPage = totalPages;
     if (totalPages == 1) {
@@ -63,36 +74,35 @@ export default class Paginator {
     this.renderPaginator();
   }
 
-  renderPaginator() {
+  renderPaginator(scrollPage = 0) {
+    let page = scrollPage || this.currentPage;
     let firstPageBlock = false;
     let lastPageBlock = false;
     let pagesToShow = [];
+
     if (this.totalPages > 5) {
-      firstPageBlock = this.currentPage > 3 && true;
-      lastPageBlock = this.currentPage <= this.totalPages - 3 && true;
+      firstPageBlock = page > 3 && true;
+      lastPageBlock = page <= this.totalPages - 3 && true;
     }
 
-    if (this.currentPage < 4 || this.totalPages <= 5) {
+    if (page < 4 || this.totalPages <= 5) {
       for (let i = 1; i <= 5; i += 1) {
         i <= this.totalPages && pagesToShow.push(i);
       }
     } else {
-      pagesToShow = [
-        this.currentPage - 2,
-        this.currentPage - 1,
-        this.currentPage,
-        this.currentPage + 1 <= this.totalPages && this.currentPage + 1,
-        this.currentPage + 2 <= this.totalPages && this.currentPage + 2,
-      ].filter(page => page != false);
+      for (let i = page - 2; i <= page + 2; i += 1) {
+        i <= this.totalPages && pagesToShow.push(i);
+      }
     }
 
     this.rootElement.innerHTML = paginatorTemplate({
       pagesToShow: pagesToShow,
-      currentPage: this.currentPage,
+      currentPage: page,
       lastPage: this.lastPage,
       lastPageBlock: lastPageBlock,
       firstPageBlock: firstPageBlock,
     });
+
     this.rootElement.querySelectorAll('li').forEach(element => {
       if (element.dataset.page == this.currentPage) {
         element.classList.add('current');
