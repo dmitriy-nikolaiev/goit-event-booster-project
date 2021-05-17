@@ -23,7 +23,7 @@
     <div class='description_event'>
       <div class='event_info'>
         <h2 class='event_info_title'>INFO</h2>
-        <p class='event_info_text'>{{eventInfo}}</p>
+        <p class='event_info_text shortInfo'>{{eventInfo}}</p>
       </div>
       <div class='event_date'>
         <h2 class='event_date_title'>WHEN</h2>
@@ -73,7 +73,7 @@
           </div>
           <a class='buy_tickets_wraper' href='{{url}}'><span
               class='buy_tickets'
-              data-id='{{id}}'
+              {{!-- data-id='{{id}}' --}}
             >BUY TICKETS</span></a>
           <div class='event_price_container'>
             <svg
