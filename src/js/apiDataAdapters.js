@@ -41,10 +41,11 @@ export default {
       priceRanges,
       products,
       _embedded,
+      url,
     } = event;
 
     const eventFullInfo = info || description || name || '';
-    const eventInfo = eventFullInfo.trim().slice(0, 150);
+    const eventInfo = eventFullInfo.trim().slice(0, 150) + '...';
     const eventImages = images.filter(
       image =>
         (image.height === 225 && image.width === 305) ||
@@ -90,6 +91,8 @@ export default {
     if (dates.start.localDate) {
       date = dates.start.localDate;
     }
+    if (eventInfo.length > 150) {
+    }
 
     return {
       name,
@@ -105,6 +108,7 @@ export default {
       attractions: attractions.join(', '),
       priceRanges,
       products,
+      url,
     };
   },
 

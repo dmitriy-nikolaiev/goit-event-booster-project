@@ -5,6 +5,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
+  display: inline-flex;
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
     height: 369px;

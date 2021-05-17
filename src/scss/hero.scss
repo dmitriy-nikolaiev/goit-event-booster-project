@@ -78,9 +78,9 @@
 
 .input-search-label {
   position: absolute;
-  width: 122px;
+  /* width: 122px; */
   height: 20px;
-  left: 30px;
+  left: 240px;
   top: 10px;
 
   font-family: Montserrat;
@@ -90,6 +90,9 @@
   line-height: 20px;
 
   color: #939393;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .select {
@@ -113,15 +116,17 @@
   background: none;
   border: none;
 
-  position: absolute;
+  /* position: absolute; */
   width: 270px;
   height: 40px;
 
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 
   border-radius: 20px;
+  color: #939393;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .select > select:first-child {
@@ -134,4 +139,13 @@
   line-height: 20px;
 
   color: #939393;
+}
+.optin-coutries-list {
+  color: #939393;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+#input-country > option {
+  background-color: #939393;
+  color: rgb(193, 193, 193);
 }
