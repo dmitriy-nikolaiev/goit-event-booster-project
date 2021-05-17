@@ -11,8 +11,6 @@ import './js/eventModal';
 import './js/account';
 import './js/auth';
 
-
-
 import eventsService from './js/apiEventsService';
 import EventsList from './js/eventsList.js';
 
@@ -61,9 +59,22 @@ searchForm.addEventListener('submit', event => {
   eventList.searchEvents(searchValue, countryValue);
 });
 
-const modalRef = document.querySelector('.backdropEvent');
-const eventListRef = document.querySelector('.cards-holder');
-eventListRef.addEventListener('click', e => {
-  const cardRef = e.target.closest('.event-card');
-  // console.log(cardRef.dataset.id);
-});
+// import dataAdapter from './js/apiDataAdapters';
+
+// const modalRef = document.querySelector('.backdropEvent');
+// console.log(modalRef, 'modalRef');
+// const eventListRef = document.querySelector('.cards-holder');
+
+// import { showModalDetails } from './js/eventModal';
+
+// eventListRef.addEventListener('click', e => {
+//   const cardRef = e.target.closest('.event-card');
+//   // console.log(cardRef.dataset.id);
+//   eventsService.getEventDetails(cardRef.dataset.id).then(res => {
+//     // console.log(res, '---ravRes from lisener');
+//     // const dataDetails = dataAdapter.transformEventDetails(res);
+//     // console.log(dataDetails, '---adapt.data');
+//     // showModalDetails(dataDetails);
+//     showModalDetails(res);
+//   });
+// });
