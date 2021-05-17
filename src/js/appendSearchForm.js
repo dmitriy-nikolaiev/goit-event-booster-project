@@ -1,7 +1,6 @@
 import countryCodes from './countryCodes';
 import EventsList from './eventsList.js';
 
-
 // const getAllEvents = async () => {
 //   try {
 //     const result = await eventsService.getAllEvents();
@@ -25,7 +24,6 @@ eventList.searchEvents();
 //
 //
 
-
 const selectRef = document.querySelector('#input-country');
 
 function createCountriesSelect() {
@@ -37,9 +35,6 @@ function createCountriesSelect() {
 }
 createCountriesSelect();
 
-
-
-
 const searchForm = document.querySelector('#search-events-form');
 searchForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -49,4 +44,3 @@ searchForm.addEventListener('submit', event => {
   // console.log(event.target.elements['country'], '---input-country');
   eventList.searchEvents(searchValue, countryValue);
 });
-
