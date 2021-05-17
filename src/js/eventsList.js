@@ -15,44 +15,75 @@ class EventsList {
       '#paginator',
       this.queryHandler,
     );
+
+    this.initListener();
   }
 
   renderList(events) {
     // console.log(events, '---events');
     this.listElement.innerHTML = eventCardListTemplate(
-      events.map(event => {
-        const temp = dataAdapters.transformEventData(event);
-        // console.log(temp);
-        return temp;
-      }),
+      events.map(event => dataAdapters.transformEventData(event)),
     );
 
-    events.forEach(event => {
-      const element = this.listElement.querySelector(
-        '#event-element-' + event.id,
-      );
-      const eventCopy = event;
-      const _this = this;
-      element.addEventListener('click', function (event) {
-        _this.loadDetails(eventCopy.id);
-      });
-    });
+    // Удалил
+    // this.listElement.innerHTML = eventCardListTemplate(
+    //   events.map(event => {
+    //     const temp = dataAdapters.transformEventData(event);
+    //     // console.log(temp);
+    //     return temp;
+    //   }),
+    // );
+
+    // events.forEach(event => {
+    //   const element = this.listElement.querySelector(
+    //     '#event-element-' + event.id,
+    //   );
+    //   const eventCopy = event;
+    //   const _this = this;
+    //   element.addEventListener('click', function (event) {
+    //     _this.loadDetails(eventCopy.id);
+    //   });
+    // });
   }
 
-  loadDetails(id) {
-    this.detailsQueryHandler(id);
-  }
+  // Удалил
+  // loadDetails(id) {
+  //   this.detailsQueryHandler(id);
+  // }
 
+  // Переделал
   detailsQueryHandler = async id => {
     try {
       const resultEvent = await eventsService.getEventDetails(id);
       // console.log(result, '---queryHandler');
-      showModalDetails(resultEvent);
+      const dataDetails = dataAdapters.transformEventDetails(resultEvent);
+      showModalDetails(dataDetails);
     } catch (error) {
-      // TODO: Dislay error
-      console.log(error, '---errorGetAll');
+      // TODO: Dislay error for detail query error
+      console.log(error, '---errorDetailsQuery');
     }
   };
+
+  //Добавл слушателя на список и передачу ИД в запрос
+  initListener() {
+    this.listElement.addEventListener('click', e => {
+      const cardRef = e.target.closest('.event-card');
+      if (cardRef) this.detailsQueryHandler(cardRef.dataset.id);
+    });
+  }
+
+  // Удалил
+  // eventListRef.addEventListener('click', e => {
+  //   const cardRef = e.target.closest('.event-card');
+  //   // console.log(cardRef.dataset.id);
+  //   eventsService.getEventDetails(cardRef.dataset.id).then(res => {
+  //     // console.log(res, '---ravRes from lisener');
+  //     // const dataDetails = dataAdapter.transformEventDetails(res);
+  //     // console.log(dataDetails, '---adapt.data');
+  //     // showModalDetails(dataDetails);
+  //     showModalDetails(res);
+  //   });
+  // });
 
   queryHandler = async () => {
     try {
@@ -72,7 +103,7 @@ class EventsList {
       }
     } catch (error) {
       // TODO: Dislay error
-      console.log(error, '---errorGetAll');
+      console.log(error, '---searchEvents');
     }
   };
 
