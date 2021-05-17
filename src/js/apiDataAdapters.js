@@ -43,14 +43,26 @@ export default {
       _embedded,
     } = event;
 
-    const eventInfo = info || description || name || '';
+    const eventFullInfo = info || description || name || '';
+    const eventInfo = eventFullInfo.trim().slice(0, 150);
     const eventImages = images.filter(
       image =>
         (image.height === 225 && image.width === 305) ||
         (image.height === 683 && image.width === 1024),
     );
+    eventImages.sort(function (a, b) {
+      return a.width - b.width;
+    });
+    // console.log(event, '---eventRaw');
+
+    // const ratioImages = images.filter(
+    //   image => image.ratio === '1_1' || image.ratio === '4_3',
+    // );
+    // console.log(ratioImages, '---ratioImages');
 
     let venue = '';
+    let date = '';
+    let time = '';
     let city = '';
     let country = '';
     let attractions = [];
@@ -72,16 +84,25 @@ export default {
       country = event.place.country.name;
     }
 
+    if (dates.start.localTime) {
+      time = dates.start.localTime.split(':').slice(0, 2).join(':');
+    }
+    if (dates.start.localDate) {
+      date = dates.start.localDate;
+    }
+
     return {
       name,
       eventInfo,
+      eventFullInfo,
       eventImages,
-      date: dates.start.localDate,
-      time: dates.start.localTime,
+      date,
+      time,
+      timezone: dates.timezone.replace('_', ' ', 'g'),
       city,
       country,
       venue,
-      attractions,
+      attractions: attractions.join(', '),
       priceRanges,
       products,
     };

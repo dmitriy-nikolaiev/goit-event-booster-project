@@ -7,18 +7,13 @@ import './styles.scss';
 
 import './js/appendLogo';
 import './js/appendHero';
+import EventsList from './js/eventsList.js';
 import './js/eventModal';
 import './js/account';
 import './js/auth';
 import './js/appendSearchForm';
 
 
-
-const modalRef = document.querySelector('.backdropEvent');
-const eventListRef = document.querySelector('.cards-holder');
-eventListRef.addEventListener('click', e => {
-  const cardRef = e.target.closest('.event-card');
-  // console.log(cardRef.dataset.id);
-});
-
+const eventList = new EventsList('.cards-holder');
+eventList.searchEvents();
 
