@@ -1,13 +1,15 @@
 .hero {
   position: relative;
   margin: 0 auto;
-  min-width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
+    min-width: 320px;
     height: 369px;
+    padding-top: 78px;
 
     background-image: url(./images/hero-overlay-mini/overlay-mini-mobile.png),
       url(./images/hero-overlay/overlay-mobile.png),
@@ -27,6 +29,7 @@
   @media screen and(min-width: 768px) and (max-width: 1280px) {
     min-width: 768px;
     height: 364px;
+    padding-top: 40px;
 
     background-image: url(./images/hero-overlay-mini/overlay-mini-tablet.png),
       url(./images/hero-overlay/overlay-tablet.png),
@@ -46,6 +49,7 @@
   @media screen and(min-width: 1280px) {
     min-width: 1280px;
     height: 446px;
+    padding-top: 40px;
 
     background-image: url(./images/hero-overlay-mini/overlay-mini-descktop.png),
       url(./images/hero-overlay/overlay-descktop.png),
