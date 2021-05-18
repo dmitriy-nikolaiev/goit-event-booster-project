@@ -20,38 +20,11 @@ class EventsList {
   }
 
   renderList(events) {
-    // console.log(events, '---events');
     this.listElement.innerHTML = eventCardListTemplate(
       events.map(event => dataAdapters.transformEventData(event)),
     );
-
-    // Удалил
-    // this.listElement.innerHTML = eventCardListTemplate(
-    //   events.map(event => {
-    //     const temp = dataAdapters.transformEventData(event);
-    //     // console.log(temp);
-    //     return temp;
-    //   }),
-    // );
-
-    // events.forEach(event => {
-    //   const element = this.listElement.querySelector(
-    //     '#event-element-' + event.id,
-    //   );
-    //   const eventCopy = event;
-    //   const _this = this;
-    //   element.addEventListener('click', function (event) {
-    //     _this.loadDetails(eventCopy.id);
-    //   });
-    // });
   }
 
-  // Удалил
-  // loadDetails(id) {
-  //   this.detailsQueryHandler(id);
-  // }
-
-  // Переделал
   detailsQueryHandler = async id => {
     try {
       const resultEvent = await eventsService.getEventDetails(id);
@@ -63,27 +36,6 @@ class EventsList {
       console.log(error, '---errorDetailsQuery');
     }
   };
-
-  //Добавл слушателя на список и передачу ИД в запрос
-  initListener() {
-    this.listElement.addEventListener('click', e => {
-      const cardRef = e.target.closest('.event-card');
-      if (cardRef) this.detailsQueryHandler(cardRef.dataset.id);
-    });
-  }
-
-  // Удалил
-  // eventListRef.addEventListener('click', e => {
-  //   const cardRef = e.target.closest('.event-card');
-  //   // console.log(cardRef.dataset.id);
-  //   eventsService.getEventDetails(cardRef.dataset.id).then(res => {
-  //     // console.log(res, '---ravRes from lisener');
-  //     // const dataDetails = dataAdapter.transformEventDetails(res);
-  //     // console.log(dataDetails, '---adapt.data');
-  //     // showModalDetails(dataDetails);
-  //     showModalDetails(res);
-  //   });
-  // });
 
   queryHandler = async () => {
     try {
@@ -112,6 +64,27 @@ class EventsList {
     this.countryCode = countryCode;
     this.paginator.setToInitial();
     this.queryHandler();
+  }
+
+  initListener() {
+    this.listElement.addEventListener('click', e => {
+      const cardRef = e.target.closest('.event-card');
+      if (cardRef) this.detailsQueryHandler(cardRef.dataset.id);
+    });
+    //
+    const searchForm = document.querySelector('#search-events-form');
+    searchForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const searchValue = event.target.elements['event'].value.trim();
+      const countryValue = event.target.elements['country'].value;
+      this.searchEvents(searchValue, countryValue);
+    });
+    //
+    const countrySelect = document.querySelector('#input-country');
+    countrySelect.addEventListener('change', event => {
+      const countryValue = event.target.value;
+      this.searchEvents(this.searchQuery, countryValue);
+    });
   }
 }
 

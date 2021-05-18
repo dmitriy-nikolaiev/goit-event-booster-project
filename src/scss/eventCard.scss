@@ -5,16 +5,19 @@
   color: #ffffff;
   text-align: center;
   position: relative;
-  margin-bottom: 50px;
+  // pos
+  // margin-bottom: 50px;
   animation: zoom 1.5s 1;
   animation-fill-mode: forwards;
   height: 100%;
-  // transform: scale(1);
-  // transition: all, 3000ms, cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: 768px) {
+    width: 138px;
+  }
 
   &:hover,
   &:focus {
-    transform: scale(1.15);
+    transform: scale(1.05);
   }
 
   &::after {
@@ -26,6 +29,11 @@
     border-radius: 50px 0px;
     width: 153px;
     height: 143px;
+
+    @media screen and (max-width: 768px) {
+      width: 109px;
+      height: 101px;
+    }
   }
   .event-image-wrapper {
     top: 13px;
@@ -39,14 +47,26 @@
 
     .event-image {
       position: absolute;
-      right: 14px;
-      left: -60px;
+      // right: 14px;
+      // left: -60px;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media screen and (max-width: 768px) {
+      top: 9px;
+      width: 128px;
+      height: 161px;
+      margin-bottom: 14px;
     }
   }
 
   .event-data {
-    position: absolute;
-    top: 88%;
+    // pos
+    // position: absolute;
+    // // top: 88%;
     // bottom: 0;
   }
   .event-data-wrapper {
@@ -58,12 +78,17 @@
   .event-title {
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 16px;
     line-height: 20px;
     text-align: center;
     color: #dc56c5;
     margin-bottom: 5px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      line-height: 17px;
+    }
   }
 
   .event-date {
@@ -72,6 +97,11 @@
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 5px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      line-height: 17px;
+    }
   }
 
   .event-place {
@@ -79,6 +109,11 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      line-height: 15px;
+    }
 
     .fa-map-marker-alt {
       font-size: 12px;
