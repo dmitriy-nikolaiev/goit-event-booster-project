@@ -1,5 +1,5 @@
 import countryCodes from './countryCodes';
-import EventsList from './eventsList.js';
+// import EventsList from './eventsList.js';
 
 // const eventList = new EventsList('.cards-holder');
 // eventList.searchEvents();
