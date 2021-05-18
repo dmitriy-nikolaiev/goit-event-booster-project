@@ -9,7 +9,7 @@ let closeModal;
 let backdrop;
 let modalWindow;
 
-export function showModalDetails(event) {
+export function showModalDetails(event, searchFunction) {
   modalEventContainer.innerHTML = eventModalTemplate(event);
 
   closeModal = document.querySelector('#close_modal_event');
@@ -18,6 +18,16 @@ export function showModalDetails(event) {
 
   closeModal.addEventListener('click', closeModalEvent);
   openModalFunc();
+  //
+  const moreRef = document.querySelector('.more_about_author_wraper');
+  moreRef.addEventListener('click', e => {
+    e.preventDefault();
+    const searchValue = event.attractions
+      ? event.attractions.split(',')[0]
+      : event.name;
+    searchFunction(searchValue);
+    closeModalEvent();
+  });
 }
 
 function openModalFunc() {

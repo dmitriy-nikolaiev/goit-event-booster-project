@@ -15,6 +15,9 @@ class EventsList {
       '#paginator',
       this.queryHandler,
     );
+    //
+    this.inputCountryRef = document.querySelector('#input-country');
+    this.inputEventRef = document.querySelector('#input-event');
 
     this.initListener();
   }
@@ -30,7 +33,7 @@ class EventsList {
       const resultEvent = await eventsService.getEventDetails(id);
       // console.log(result, '---queryHandler');
       const dataDetails = dataAdapters.transformEventDetails(resultEvent);
-      showModalDetails(dataDetails);
+      showModalDetails(dataDetails, this.searchMore.bind(this));
     } catch (error) {
       // TODO: Dislay error for detail query error
       console.log(error, '---errorDetailsQuery');
@@ -59,6 +62,12 @@ class EventsList {
     }
   };
 
+  searchMore(searchName) {
+    this.inputCountryRef.value = '';
+    this.inputEventRef.value = searchName;
+    this.searchEvents(searchName, '');
+  }
+
   searchEvents(queryString = '', countryCode = '') {
     this.searchQuery = queryString;
     this.countryCode = countryCode;
@@ -80,10 +89,11 @@ class EventsList {
       this.searchEvents(searchValue, countryValue);
     });
     //
-    const countrySelect = document.querySelector('#input-country');
-    countrySelect.addEventListener('change', event => {
+    // const countrySelect = document.querySelector('#input-country');
+    this.inputCountryRef.addEventListener('change', event => {
       const countryValue = event.target.value;
-      this.searchEvents(this.searchQuery, countryValue);
+      // this.searchEvents(this.searchQuery, countryValue);
+      this.searchEvents(this.inputEventRef.value, countryValue);
     });
   }
 }
