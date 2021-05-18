@@ -52,7 +52,13 @@ class EventsList {
       );
       // console.log(result, '---queryHandler');
       if (result._embedded) {
-        this.paginator.init(result.page.number, result.page.totalPages);
+        // this.paginator.init(result.page.number, result.page.totalPages);
+        this.paginator.init(
+          result.page.number,
+          result.page.totalPages > Math.floor(1000 / this.itemsPerPage)
+            ? Math.floor(1000 / this.itemsPerPage)
+            : result.page.totalPages,
+        );
         this.renderList(result._embedded.events);
       } else {
         // TODO: Display not found
