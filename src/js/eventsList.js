@@ -2,6 +2,26 @@ import eventsService from './apiEventsService.js';
 import dataAdapters from './apiDataAdapters';
 import eventCardListTemplate from '../templates/eventCardList.hbs';
 import Paginator from './paginator';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "3000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
 
 class EventsList {
   constructor(selector) {
@@ -36,11 +56,11 @@ class EventsList {
         this.paginator.init(result.page.number, result.page.totalPages);
         this.renderList(result._embedded.events);
       } else {
-        // TODO: Display not found
+        toastr.error('Not Found!');
         console.log('Not Found');
       }
     } catch (error) {
-      // TODO: Dislay error
+      toastr.error('---errorGetAll', 'Something is wrong!');
       console.log(error, '---errorGetAll');
     }
   };
