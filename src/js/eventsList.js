@@ -3,6 +3,7 @@ import dataAdapters from './apiDataAdapters';
 import eventCardListTemplate from '../templates/eventCardList.hbs';
 import Paginator from './paginator';
 import { showModalDetails } from './eventModal';
+import * as showNotify from './pnotify';
 
 class EventsList {
   constructor(selector) {
@@ -36,6 +37,7 @@ class EventsList {
       showModalDetails(dataDetails, this.searchMore.bind(this));
     } catch (error) {
       // TODO: Dislay error for detail query error
+      showNotify.showError();
       console.log(error, '---errorDetailsQuery');
     }
   };
@@ -54,10 +56,12 @@ class EventsList {
         this.renderList(result._embedded.events);
       } else {
         // TODO: Display not found
+        showNotify.showAlert();
         console.log('Not Found');
       }
     } catch (error) {
       // TODO: Dislay error
+      showNotify.showError();
       console.log(error, '---searchEvents');
     }
   };
