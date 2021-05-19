@@ -1,0 +1,175 @@
+$ss-line-height: 19px !default;
+$ss-border-width: 1px !default;
+$ss-spacing: 24px !default;
+
+$ss-highlight-color: rgb(242, 244, 248) !default;
+$ss-selected-option-background: linear-gradient(
+  to bottom,
+  #fefefe,
+  #f2f2f2
+) !default;
+$ss-dropdown-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !default;
+
+$ss-standard-border: $ss-border-width solid #d0d0d0 !default;
+
+$ss-spacing-small: $ss-spacing / 2 !default;
+$ss-spacing-tiny: $ss-spacing / 4 !default;
+
+// Hide real select boxes which have seen styled.
+select[data-ss-uuid] {
+  display: none;
+  pointer-events: none;
+}
+
+.style-select {
+  border: none;
+  position: absolute;
+  width: 270px;
+  height: 40px;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  scrollbar-width: thin;
+
+  padding-left: 10px;
+  color: #939393;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10;
+
+  &,
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: $ss-line-height;
+    // color: black;
+    // font-weight: 300;
+    cursor: pointer;
+  }
+
+  .ss-selected-option {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    padding-left: 30px;
+    // background-image: $ss-selected-option-background;
+    // border-radius: 2px;
+    // padding: $ss-spacing-tiny;
+    // border: $ss-standard-border;
+    // The down arrow
+    &::after {
+      content: '▾';
+      position: absolute;
+
+      // top: $ss-spacing-tiny;
+      // right: $ss-spacing-small;
+      top: 1px;
+      right: 25px;
+      display: block;
+      //
+      // background: rgba(255, 255, 255, 0.2);
+      // backdrop-filter: blur(20px);
+    }
+    // палочка
+  }
+
+  .ss-dropdown {
+    // top: $ss-line-height + 2 * $ss-spacing-tiny + $ss-border-width;
+    top: 40px;
+    left: 0;
+    position: absolute;
+    float: left;
+    width: 100%;
+    width: 270px;
+    display: none;
+    // box-shadow: $ss-dropdown-shadow;
+    // border: $ss-standard-border;
+    // border-top: 0 none;
+    height: 210px;
+    // scrollbar-width: thin;
+    // overflow-y: scroll;
+    overflow: auto;
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    //
+    // палочка
+    // &::before {
+    //   content: '';
+    //   display: block;
+    //   border-bottom: 1px solid #939393;
+    // }
+
+    .ss-option {
+      width: 100%;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 30px;
+      padding-right: 5px;
+      height: 25px;
+      //
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      /* identical to box height */
+
+      color: #cccccc;
+      // padding: $ss-spacing-tiny;
+      // background-color: white;
+      // We don't use :hover as that's only for mouse
+      // and we want keyboard highlighting too #DC56C5
+      &.highlighted {
+        // background-color: $ss-highlight-color;
+        background-color: #dc56c5;
+      }
+      // &.disabled {
+      //   color: #d0d0d0;
+      // }
+      // &.ticked::before {
+      //   content: '✓';
+      //   padding-right: 3px;
+      // }
+    }
+  }
+
+  &.open {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    &::after {
+      content: '';
+      display: block;
+      border-bottom: 1px solid #939393;
+      position: absolute;
+      width: 225px;
+      left: 20px;
+      bottom: 0;
+    }
+
+    .ss-dropdown {
+      display: block;
+    }
+    .ss-selected-option::after {
+      content: '▴';
+    }
+  }
+}
+
+// .scrollbar {
+//   margin-left: 30px;
+//   float: left;
+//   height: 300px;
+//   width: 65px;
+//   background: #fff;
+//   overflow-y: scroll;
+//   margin-bottom: 25px;
+// }
+// .force-overflow {
+//   min-height: 450px;
+// }

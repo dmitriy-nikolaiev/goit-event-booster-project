@@ -54,6 +54,7 @@
     "chokidar": "^3.5.1",
     "core-js": "^3.6.5",
     "firebase": "^8.6.1",
-    "handlebars": "^4.7.6"
+    "handlebars": "^4.7.6",
+    "styleselect": "^1.0.3"
   }
 }

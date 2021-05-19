@@ -1,4 +1,5 @@
 import countryCodes from './countryCodes';
+import styleselect from 'styleselect';
 // import EventsList from './eventsList.js';
 
 // const eventList = new EventsList('.cards-holder');
@@ -14,3 +15,7 @@ function createCountriesSelect() {
   selectRef.insertAdjacentHTML('beforeend', options.join('')); // заганяєм це все добро в кнопку
 }
 createCountriesSelect();
+
+// 
+styleselect(selectRef);
+// 
