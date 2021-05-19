@@ -46,10 +46,10 @@ export default {
 
     let eventFullInfo = info || description || name || '';
     let eventInfo = eventFullInfo;
-    if(eventFullInfo.length>140){
-      eventInfo = eventFullInfo.trim().slice(0, 140);
-    } else{
-      eventFullInfo ='';
+    if (eventFullInfo.length > 120) {
+      eventInfo = eventFullInfo.trim().slice(0, 120);
+    } else {
+      eventFullInfo = '';
     }
     // console.log(event,'---event');
     // const eventInfo = eventFullInfo.trim().slice(0, 140) + eventFullInfo.length>140 ? '...':'';
