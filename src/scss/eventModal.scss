@@ -88,13 +88,13 @@ body {
     width: 272px;
   }
   @media screen and(min-width: 768px) and (max-width: 1279px) {
-    width: 595px;
+    max-width: 595px;
     padding: 0 50px 0 50px;
     border-radius: 300px 0 300px 0;
   }
   @media screen and(min-width: 1280px) {
-    width: 930px;
-    height: 1023px;
+    max-width: 930px;
+    max-height: 1023px;
     padding: 0 30px 0 30px;
     border-radius: 300px 0 300px 0;
   }
@@ -333,12 +333,12 @@ body {
 .description_event {
   @media screen and(min-width: 768px) and (max-width: 1279px) {
     width: 280px;
-    margin-left: 60px;
+    margin-left: 30px;
   }
 
   @media screen and(min-width: 1280px) {
     width: 450px;
-    margin-left: 30px;
+    margin-left: 60px;
   }
 }
 .icon_img {
@@ -351,4 +351,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.event_headliner_wraper {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 20px;
 }

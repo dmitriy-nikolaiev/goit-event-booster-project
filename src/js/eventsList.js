@@ -67,7 +67,7 @@ class EventsList {
       }
     } catch (error) {
       // TODO: Dislay error
-      showNotify.showError();
+      showNotify.ShowInfo();
       console.log(error, '---searchEvents');
     }
   };
