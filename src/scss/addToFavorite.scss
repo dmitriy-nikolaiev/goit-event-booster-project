@@ -1,0 +1,79 @@
+@media screen and (min-width: 320px) and (max-width: 767.5px) {
+  .pers-acc__favorite-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .pers-acc__favorite-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .pers-acc__favorite-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.add-to-favorite-bttn.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.add-to-favorite-bttn {
+  position: absolute;
+  top: 64px;
+  right: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  width: 25px;
+  height: 25px;
+
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  //   &:hover {
+  //     fill: red;
+  //   }
+}
+.add-to-favorite-bttn.active {
+  animation: color-red 200ms 1 forwards;
+}
+@keyframes color-red {
+  0% {
+    fill: #45161c;
+  }
+  50% {
+    fill: #911e42;
+  }
+  100% {
+    fill: red;
+  }
+}
+
+.add-to-favorite-date {
+  color: black;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.add-to-favorite-place {
+  color: black;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}

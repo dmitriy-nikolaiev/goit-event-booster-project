@@ -1,4 +1,6 @@
 import eventModalTemplate from '../templates/eventModal.hbs';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 const modalEventContainer = document.createElement('div');
 modalEventContainer.classList.add('backdropEvent', 'is-hidden');
@@ -8,8 +10,10 @@ document.body.insertAdjacentElement('afterbegin', modalEventContainer);
 let closeModal;
 let backdrop;
 let modalWindow;
+let addToFavoriteBttn;
+let eventObj;
 
-export function showModalDetails(event, searchFunction) {
+export function showModalDetails(event, searchFunction, id) {
   // console.log(event, '---eventToMoadl');
   modalEventContainer.innerHTML = eventModalTemplate(event);
   if (event.eventFullInfo !== '') {
@@ -30,6 +34,36 @@ export function showModalDetails(event, searchFunction) {
   closeModal = document.querySelector('#close_modal_event');
   backdrop = document.querySelector('.backdropEvent');
   modalWindow = document.querySelector('.modal-event-card');
+  addToFavoriteBttn = document.querySelector('.add-to-favorite-bttn');
+
+  // Проверка на авторизацию
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+      addToFavoriteBttn.classList.remove('is-hidden');
+    }
+  });
+
+  //Проверка на наличие елемента в локальном хранилище и добавление класса для кнопки
+  if (localStorage.getItem(`event-${id}`)) {
+    addToFavoriteBttn.classList.add('active');
+  }
+  //Добавляю слушатель на кнопку-сердечко
+  addToFavoriteBttn.addEventListener('click', e => {
+    let self = e.currentTarget;
+    let localStor = localStorage.getItem('event-key');
+
+    self.classList.toggle('active');
+
+    if (self.classList.contains('active')) {
+      eventObj = event;
+      eventObj.id = id;
+      localStorage.setItem(`event-${id}`, JSON.stringify(eventObj));
+      localKeys(localStor, id);
+    } else {
+      localKeys(localStor, id);
+      localStorage.removeItem(`event-${id}`);
+    }
+  });
 
   closeModal.addEventListener('click', closeModalEvent);
   openModalFunc();
@@ -74,4 +108,23 @@ function onEscKeydown(event) {
 
 function showModal(id) {
   alert(id);
+}
+
+function localKeys(obj, id) {
+  let localkey = [];
+  let eventId = `event-${id}`;
+  localkey = JSON.parse(obj);
+  if (localkey === null) {
+    localkey = [eventId];
+    return localStorage.setItem(`event-key`, JSON.stringify(localkey));
+  }
+
+  let index = localkey.indexOf(eventId);
+  if (index === -1) {
+    localkey.push(eventId);
+    return localStorage.setItem(`event-key`, JSON.stringify(localkey));
+  } else if (index !== -1) {
+    localkey.splice(index, 1);
+    return localStorage.setItem(`event-key`, JSON.stringify(localkey));
+  }
 }

@@ -1,9 +1,29 @@
-@media screen and (max-width: 768px) {
+.pers-acc-modal {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
+  z-index: 12;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 13, 29, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 111;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 320px) and (max-width: 767.5px) {
   .pers-acc__content {
     min-width: 300px;
     min-height: 400px;
     max-width: 768px;
-    max-height: 450px;
+
     border-radius: 120px 0px;
   }
   .pers-acc__close-bttn {
@@ -18,7 +38,6 @@
     min-width: 768px;
     min-height: 450px;
     max-width: 1280px;
-    max-height: 500px;
     border-radius: 200px 0px;
   }
 
@@ -34,7 +53,6 @@
     min-width: 1280px;
     min-height: 500px;
     max-width: 1280px;
-    max-height: 550px;
     border-radius: 200px 0px;
   }
 
@@ -46,38 +64,24 @@
   }
 }
 
-.pers-acc-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 12;
-}
-
 .pers-acc-modal.is-open {
   opacity: 1;
   pointer-events: initial;
 }
 
-.pers-acc__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-}
+// .pers-acc__overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: rgba(0, 0, 0, 0.8);
+// }
 
 .pers-acc__content {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   background-color: #fff;
   transform: scale(0.95);
   transition: transform var(--animation-duration) var(--timing-function);
@@ -123,4 +127,55 @@
   border-radius: 5px;
   bottom: 15px;
   left: 15px;
+}
+
+.pers-acc__tabs {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pers-acc__tabs-links {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  order: 0;
+  white-space: nowrap;
+  background-color: #fff;
+  border: 1px solid #e3f2fd;
+  box-shadow: 0 2px 4px 0 #e3f2fd;
+  border-radius: 200px 0px;
+}
+
+.pers-acc__tabs-links > a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 6px 10px;
+  text-align: center;
+  color: #1976d2;
+}
+
+.pers-acc__tabs-links > a:hover {
+  background-color: rgba(227, 242, 253, 0.3);
+}
+
+.pers-acc__tabs > #content-1:target ~ .tabs-links > a[href='#content-1'],
+.pers-acc__tabs > #content-2:target ~ .tabs-links > a[href='#content-2'],
+.pers-acc__tabs > #content-3:target ~ .tabs-links > a[href='#content-3'] {
+  background-color: #bbdefb;
+  cursor: default;
+}
+
+.pers-acc__tabs > div:not(.pers-acc__tabs-links) {
+  display: none;
+  order: 1;
+}
+.pers-acc__tabs > div:target {
+  display: block;
 }

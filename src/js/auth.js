@@ -13,12 +13,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //Get element
+
 const logInModalDivRef = document.querySelector('.log-in-modal');
 const signUpModalDivRef = document.querySelector('.sign-up-modal');
 const persAccModalDivRef = document.querySelector('.pers-acc-modal');
+const favoriteList = document.querySelector('.pers-acc__favorite-list');
 
 const persAccCloseBttnRef = document.querySelector('.pers-acc__close-bttn');
-const persAccOverlayRef = document.querySelector('.pers-acc__overlay');
+const persAccOverlayRef = document.querySelector('.pers-acc-modal');
 const persAccLogOutBttnRef = document.querySelector('.pers-acc__out-bttn');
 
 const logInLinkBttnRef = document.querySelector('.acc-bttn');
@@ -86,14 +88,20 @@ function insertAccModal() {
 function closeModal() {
   window.removeEventListener('keydown', onPressEsc);
   persAccModalDivRef.classList.remove('is-open');
+  deleteMarkup();
 }
 function onBackDropClick(event) {
   if (event.target === event.currentTarget) {
     closeModal();
+    deleteMarkup();
   }
 }
 function onPressEsc(event) {
   if (event.code === 'Escape') {
     closeModal();
+    deleteMarkup();
   }
+}
+function deleteMarkup() {
+  favoriteList.innerHTML = '';
 }
