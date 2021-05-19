@@ -13,6 +13,7 @@
     rgba(196, 196, 196, 0) 92.33%
   );
   backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
   @media screen and(max-width: 768px) {
     width: 100px;

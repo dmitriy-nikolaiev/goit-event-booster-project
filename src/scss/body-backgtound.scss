@@ -1,50 +1,48 @@
-.body{
-    background-color: #0E0E0E;
-    background-repeat: no-repeat;
-    background-size: cover;
+.body {
+  background-color: #0e0e0e;
+  background-repeat: no-repeat;
 
-    @media screen and (max-width: 768px) {
-        background-position: left 0 top 364px;
+  @media screen and (max-width: 768px) {
+    background-position: left 0 top 364px;
 
-        background-image: url(./images/body-background/noise-body-mobile.png);
+    background-image: url(./images/body-background/noise-body-mobile.png);
 
-        @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-            .body {
-                background-image: 
-                url(./images/body-background/noise-body-mobile@2x.png)
-            }
-        }
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .body {
+        background-image: url(./images/body-background/noise-body-mobile@2x.png);
+      }
     }
+  }
 
-    @media screen and (min-width: 768px) and (max-width: 1280px) {
-        background-position: left 0 top 364px;
+  @media screen and (min-width: 768px) and (max-width: 1280px) {
+    background-position: left 0 top 364px, center;
 
-        background-image: url(./images/body-background/noise-body-tablet.png);
+    background-image: url(./images/body-background/noise-body-tablet.png),
+      url(./images/body-background/background-decor-768.svg);
 
-        @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-            .body {
-                background-image: 
-                url(./images/body-background/noise-body-tablet@2x.png)
-            }
-        }
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .body {
+        background-image: url(./images/body-background/noise-body-tablet@2x.png);
+      }
     }
+  }
 
-    @media screen and(min-width: 1280px) {
-        background-position: left 0 top 446px;
+  @media screen and(min-width: 1280px) {
+    background-position: left 0 top 446px, center;
 
-        background-image: url(./images/body-background/noise-body-descktop.png);
+    background-image: url(./images/body-background/noise-body-descktop.png),
+      url(./images/body-background/background-decor-1280.svg);
 
-        @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-            .body {
-                background-image: 
-                url(./images/body-background/noise-body-descktop@2x.png)
-            }
-        }
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .body {
+        background-image: url(./images/body-background/noise-body-descktop@2x.png);
+      }
     }
+  }
 }
