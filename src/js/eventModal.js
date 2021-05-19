@@ -10,7 +10,22 @@ let backdrop;
 let modalWindow;
 
 export function showModalDetails(event, searchFunction) {
+  // console.log(event, '---eventToMoadl');
   modalEventContainer.innerHTML = eventModalTemplate(event);
+  if (event.eventFullInfo !== '') {
+    const infoBoxRef = document.querySelector('.event-wrapper');
+    infoBoxRef.classList.add('full-info-present');
+    // infoBoxRef.dataset.full = 'true';
+    const fullInfoRef = document.querySelector('.fullInfo');
+    modalEventContainer.addEventListener('click', e => {
+      if (e.target.classList.contains('shortInfo')) {
+        fullInfoRef.classList.toggle('show');
+      } else {
+        // fullInfoRef.classList.contains('fullInfo');
+        fullInfoRef.classList.toggle('show');
+      }
+    });
+  }
 
   closeModal = document.querySelector('#close_modal_event');
   backdrop = document.querySelector('.backdropEvent');

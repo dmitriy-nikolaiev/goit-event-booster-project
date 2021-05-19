@@ -44,8 +44,15 @@ export default {
       url,
     } = event;
 
-    const eventFullInfo = info || description || name || '';
-    const eventInfo = eventFullInfo.trim().slice(0, 150) + '...';
+    let eventFullInfo = info || description || name || '';
+    let eventInfo = eventFullInfo;
+    if(eventFullInfo.length>140){
+      eventInfo = eventFullInfo.trim().slice(0, 140);
+    } else{
+      eventFullInfo ='';
+    }
+    // console.log(event,'---event');
+    // const eventInfo = eventFullInfo.trim().slice(0, 140) + eventFullInfo.length>140 ? '...':'';
     const eventImages = images.filter(
       image =>
         (image.height === 225 && image.width === 305) ||
