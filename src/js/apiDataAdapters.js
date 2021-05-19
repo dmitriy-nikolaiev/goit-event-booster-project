@@ -15,13 +15,6 @@ export default {
       venue = event.place.city.name;
     }
 
-    // if (event.products) {
-    //   console.log(id, 'id_products');
-    // }
-    // if (event.priceRanges && event.products && event.priceRanges.length > 1) {
-    //   console.log(id, 'id_priceRanges>1');
-    // }
-
     return {
       id,
       name,
@@ -33,6 +26,7 @@ export default {
 
   transformEventDetails(event) {
     const {
+      id,
       name,
       description,
       info,
@@ -46,10 +40,10 @@ export default {
 
     let eventFullInfo = info || description || name || '';
     let eventInfo = eventFullInfo;
-    if(eventFullInfo.length>140){
-      eventInfo = eventFullInfo.trim().slice(0, 140);
-    } else{
-      eventFullInfo ='';
+    if (eventFullInfo.length > 120) {
+      eventInfo = eventFullInfo.trim().slice(0, 120);
+    } else {
+      eventFullInfo = '';
     }
     // console.log(event,'---event');
     // const eventInfo = eventFullInfo.trim().slice(0, 140) + eventFullInfo.length>140 ? '...':'';
@@ -61,14 +55,8 @@ export default {
     eventImages.sort(function (a, b) {
       return a.width - b.width;
     });
-    // console.log(event, '---eventRaw');
 
-    // const ratioImages = images.filter(
-    //   image => image.ratio === '1_1' || image.ratio === '4_3',
-    // );
-    // console.log(ratioImages, '---ratioImages');
-
-    let venue = '';
+    let venue = 'No venue';
     let date = '';
     let time = '';
     let city = '';
@@ -102,6 +90,7 @@ export default {
     }
 
     return {
+      id,
       name,
       eventInfo,
       eventFullInfo,

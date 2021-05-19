@@ -13,8 +13,9 @@ let modalWindow;
 let addToFavoriteBttn;
 let eventObj;
 
-export function showModalDetails(event, searchFunction, id) {
+export function showModalDetails(event, searchFunction) {
   // console.log(event, '---eventToMoadl');
+  const id = event.id;
   modalEventContainer.innerHTML = eventModalTemplate(event);
   if (event.eventFullInfo !== '') {
     const infoBoxRef = document.querySelector('.event-wrapper');
