@@ -99,10 +99,8 @@ class EventsList {
       this.searchEvents(searchValue, countryValue);
     });
     //
-    // const countrySelect = document.querySelector('#input-country');
     this.inputCountryRef.addEventListener('change', event => {
       const countryValue = event.target.value;
-      // this.searchEvents(this.searchQuery, countryValue);
       this.searchEvents(this.inputEventRef.value, countryValue);
     });
   }

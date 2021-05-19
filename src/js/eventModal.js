@@ -19,15 +19,14 @@ export function showModalDetails(event, searchFunction) {
   modalEventContainer.innerHTML = eventModalTemplate(event);
   if (event.eventFullInfo !== '') {
     const infoBoxRef = document.querySelector('.event-wrapper');
-    infoBoxRef.classList.add('full-info-present');
-    // infoBoxRef.dataset.full = 'true';
+    infoBoxRef.style.cursor = 'pointer';
+
     const fullInfoRef = document.querySelector('.fullInfo');
     modalEventContainer.addEventListener('click', e => {
       if (e.target.classList.contains('shortInfo')) {
-        fullInfoRef.classList.toggle('show');
+        fullInfoRef.classList.add('show');
       } else {
-        // fullInfoRef.classList.contains('fullInfo');
-        fullInfoRef.classList.toggle('show');
+        fullInfoRef.classList.remove('show');
       }
     });
   }
