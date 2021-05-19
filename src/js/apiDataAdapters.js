@@ -15,13 +15,6 @@ export default {
       venue = event.place.city.name;
     }
 
-    // if (event.products) {
-    //   console.log(id, 'id_products');
-    // }
-    // if (event.priceRanges && event.products && event.priceRanges.length > 1) {
-    //   console.log(id, 'id_priceRanges>1');
-    // }
-
     return {
       id,
       name,
@@ -32,26 +25,24 @@ export default {
   },
 
   transformEventDetails(event) {
+    // console.log(event, '---event transform');
     const {
+      id,
       name,
       description,
       info,
       images,
       dates,
       priceRanges,
-      products,
       _embedded,
       url,
     } = event;
 
     let eventFullInfo = info || description || name || '';
-    let eventInfo = eventFullInfo;
-    if (eventFullInfo.length > 120) {
-      eventInfo = eventFullInfo.trim().slice(0, 120);
-    } else {
+    const eventInfo = eventFullInfo.trim().substring(0, 110);
+    if (eventFullInfo.length <= 110) {
       eventFullInfo = '';
     }
-    // console.log(event,'---event');
     // const eventInfo = eventFullInfo.trim().slice(0, 140) + eventFullInfo.length>140 ? '...':'';
     const eventImages = images.filter(
       image =>
@@ -61,16 +52,10 @@ export default {
     eventImages.sort(function (a, b) {
       return a.width - b.width;
     });
-    // console.log(event, '---eventRaw');
 
-    // const ratioImages = images.filter(
-    //   image => image.ratio === '1_1' || image.ratio === '4_3',
-    // );
-    // console.log(ratioImages, '---ratioImages');
-
-    let venue = '';
-    let date = '';
-    let time = '';
+    let venue = 'No venue';
+    // let date = '';
+    // let time = '';
     let city = '';
     let country = '';
     let attractions = [];
@@ -92,29 +77,28 @@ export default {
       country = event.place.country.name;
     }
 
-    if (dates.start.localTime) {
-      time = dates.start.localTime.split(':').slice(0, 2).join(':');
-    }
-    if (dates.start.localDate) {
-      date = dates.start.localDate;
-    }
-    if (eventInfo.length > 150) {
-    }
+    const date = dates.start.localDate ? dates.start.localDate : '';
+    const time = dates.start.localTime
+      ? dates.start.localTime.split(':').slice(0, 2).join(':')
+      : '';
+    const timezone = dates.timezone
+      ? dates.timezone.replace('_', ' ', 'g')
+      : '';
 
     return {
+      id,
       name,
       eventInfo,
       eventFullInfo,
       eventImages,
       date,
       time,
-      timezone: dates.timezone.replace('_', ' ', 'g'),
+      timezone,
       city,
       country,
       venue,
       attractions: attractions.join(', '),
       priceRanges,
-      products,
       url,
     };
   },

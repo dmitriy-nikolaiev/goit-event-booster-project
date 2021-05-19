@@ -9,9 +9,9 @@ openModal.addEventListener('click', createMarkup);
 function createMarkup() {
   if (localStorage.getItem(`event-key`)) {
     const keys = localStorage.getItem(`event-key`);
-    console.log(keys);
+    // console.log(keys);
     const idArray = JSON.parse(keys);
-    console.log(idArray);
+    // console.log(idArray);
     idArray.map(id => {
       let eventKey = localStorage.getItem(id);
       let parseKey = JSON.parse(eventKey);
