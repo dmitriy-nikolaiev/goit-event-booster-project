@@ -5,25 +5,22 @@
     width: 212px;
     height: 100%;
     margin-bottom: 25px;
-    margin-top: 78px;
   }
 
   @media screen and(min-width: 768px) and (max-width: 1280px) {
     width: 353px;
     margin-bottom: 27px;
-    margin-top: 40px;
     height: 100%;
   }
 
   @media screen and(min-width: 1280px) {
     width: 590px;
     margin-bottom: 52px;
-    padding-top: 40px;
     height: 100%;
   }
 }
-.form-container{
-  @media screen and(min-width: 768px){
+.form-container {
+  @media screen and(min-width: 768px) {
     width: 570px;
   }
 }
