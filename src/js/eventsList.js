@@ -57,7 +57,7 @@ class EventsList {
       const resultEvent = await eventsService.getEventDetails(id);
       // console.log(result, '---queryHandler');
       const dataDetails = dataAdapters.transformEventDetails(resultEvent);
-      showModalDetails(dataDetails);
+      showModalDetails(dataDetails, id);
     } catch (error) {
       // TODO: Dislay error for detail query error
       console.log(error, '---errorDetailsQuery');
