@@ -68,13 +68,13 @@ persAccLogOutBttnRef.addEventListener('click', e => {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
-    console.log(firebaseUser);
+    // console.log(firebaseUser);
     logInLinkBttnRef.innerHTML = 'Account';
     logInLinkBttnRef.addEventListener('click', insertAccModal);
     persAccOverlayRef.addEventListener('click', onBackDropClick);
     persAccCloseBttnRef.addEventListener('click', closeModal);
   } else {
-    console.log('not logged in');
+    // console.log('not logged in');
     logInLinkBttnRef.innerHTML = 'Log in';
   }
 });

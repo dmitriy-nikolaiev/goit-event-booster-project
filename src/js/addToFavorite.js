@@ -94,10 +94,6 @@ function closeModalEvent() {
   window.removeEventListener('keydown', onEscKeydown);
   modalWindow.innerHTML = '';
   createMarkup();
-
-  // правильней было бы почистить контейнер, но тогда пропадет анимация убирания окна
-  // можно что-то попробовать придумать.
-  // modalEventContainer.innerHTML = '';
 }
 
 function closeModalOnBackdropEvent(event) {

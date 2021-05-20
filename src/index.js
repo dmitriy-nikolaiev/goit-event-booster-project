@@ -13,6 +13,8 @@ import './js/account';
 import './js/auth';
 import './js/appendSearchForm';
 import './js/addToFavorite';
+import './js/preloader';
 
-// const eventList = new EventsList('.cards-holder');
-// eventList.searchEvents();
+
+const eventList = new EventsList('.cards-holder');
+eventList.searchEvents();

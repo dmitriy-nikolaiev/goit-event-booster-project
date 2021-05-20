@@ -1,137 +1,125 @@
-.title-container {
-  position: absolute;
-  @media screen and (max-width: 768px) {
-    width: 212px;
-    height: 44px;
-    left: 53px;
-    top: 78px;
+@import './styleselect.scss';
 
+.title-container {
+  @media screen and (max-width: 767px) {
+    width: 212px;
+    height: 100%;
     margin-bottom: 25px;
   }
 
   @media screen and(min-width: 768px) and (max-width: 1280px) {
     width: 353px;
-    height: 74px;
-    left: 208px;
-    top: 40px;
-
     margin-bottom: 27px;
+    height: 100%;
   }
 
   @media screen and(min-width: 1280px) {
     width: 590px;
-    height: 122px;
-    left: 345px;
-    top: 40px;
-
     margin-bottom: 52px;
+    height: 100%;
+  }
+}
+.form-container {
+  @media screen and(min-width: 768px) {
+    width: 570px;
   }
 }
 
-.form-container {
-  @media screen and (max-width: 767px) {
-    position: absolute;
-    width: 270px;
-    height: 105px;
-    left: 25px;
-    top: 147px;
+#search-events-form {
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+  }
+  @media screen and(min-width: 1280px) {
+    display: flex;
   }
 }
 
 .input-container {
-  width: 270px;
-  height: 40px;
+  position: relative;
 
   @media screen and (max-width: 767px) {
     margin-bottom: 25px;
   }
 
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    position: absolute;
-    left: 99px;
-    top: 141px;
-    margin-bottom: 0;
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
     margin-right: 30px;
   }
 
   @media screen and(min-width: 1280px) {
-    position: absolute;
-    left: 355px;
-    top: 214px;
-    margin-bottom: 0;
     margin-right: 30px;
   }
 }
 
-#input-event {
+.input-search {
   width: 270px;
   height: 40px;
-  padding-left: 10px;
+  padding-left: 30px;
 
   background: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 
   border: none;
+  outline-style: none;
   border-radius: 20px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #939393;
+  outline: none;
 }
 
 .input-search-label {
   position: absolute;
-  width: 122px;
-  height: 20px;
-  left: 30px;
-  top: 10px;
-
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
+  left: 230px;
+  top: 13px;
 
   color: #939393;
-}
-
-.select {
-  width: 270px;
-  height: 40px;
-
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    position: absolute;
-    left: 399px;
-    top: 141px;
-  }
-
-  @media screen and(min-width: 1280px) {
-    position: absolute;
-    left: 655px;
-    top: 214px;
-  }
-}
-
-#input-country {
-  background: none;
+  background: transparent;
   border: none;
-
-  position: absolute;
-  width: 270px;
-  height: 40px;
-
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-
-  border-radius: 20px;
+  cursor: pointer;
 }
 
-.select > select:first-child {
-  padding-left: 30px;
+// #input-country {
+//   width: 270px;
+//   height: 40px;
+//   padding-left: 30px;
 
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
+//   background: rgba(255, 255, 255, 0.2);
+//   -webkit-backdrop-filter: blur(20px);
+//   backdrop-filter: blur(20px);
 
-  color: #939393;
-}
+//   border: none;
+//   border-radius: 20px;
+
+//   font-family: Montserrat;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 20px;
+//   color: #939393;
+// }
+
+// .select > select:first-child {
+//   padding-left: 30px;
+
+//   font-family: Montserrat;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 16px;
+//   line-height: 20px;
+
+//   color: #939393;
+// }
+// .optin-coutries-list {
+//   color: #939393;
+//   background-color: rgba(255, 255, 255, 0.2);
+//   border-radius: 20px;
+// }
+// #input-country > option {
+//   background-color: #939393;
+//   color: rgb(193, 193, 193);
+// }

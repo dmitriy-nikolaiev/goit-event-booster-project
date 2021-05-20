@@ -1,9 +1,7 @@
 import eventModalTemplate from '../templates/eventModal.hbs';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// Создаем контейнер для модалки методом createElement,
-// тогда он будет доступен как переменная modalEventContainer и не нужно делать querySelector.
-// В шаблоне удалил контейнер
+
 const modalEventContainer = document.createElement('div');
 modalEventContainer.classList.add('backdropEvent', 'is-hidden');
 document.body.insertAdjacentElement('afterbegin', modalEventContainer);
@@ -15,24 +13,23 @@ let modalWindow;
 let addToFavoriteBttn;
 let eventObj;
 
-export function showModalDetails(event, id) {
-  // шаблон переделан под адаптированные данные.
-  // подготовленные данные в apiDataAdapters для шаблона:
-  //  name,
-  // eventInfo,
-  // eventImages,
-  // date: dates.start.localDate,
-  // time: dates.start.localTime,
-  // city,
-  // country,
-  // venue,
-  // attractions: attractions.join(', '),
-  // priceRanges,
-  // products,
-
-  // console.log(event, '---eventInModal');
-  // Вставляем шаблон в контейнер, заменяя его содержимое
+export function showModalDetails(event, searchFunction) {
+  // console.log(event, '---eventToMoadl');
+  const id = event.id;
   modalEventContainer.innerHTML = eventModalTemplate(event);
+  if (event.eventFullInfo !== '') {
+    const infoBoxRef = document.querySelector('.event-wrapper');
+    infoBoxRef.style.cursor = 'pointer';
+
+    const fullInfoRef = document.querySelector('.fullInfo');
+    modalEventContainer.addEventListener('click', e => {
+      if (e.target.classList.contains('shortInfo')) {
+        fullInfoRef.classList.add('show');
+      } else {
+        fullInfoRef.classList.remove('show');
+      }
+    });
+  }
 
   closeModal = document.querySelector('#close_modal_event');
   backdrop = document.querySelector('.backdropEvent');
@@ -70,6 +67,16 @@ export function showModalDetails(event, id) {
 
   closeModal.addEventListener('click', closeModalEvent);
   openModalFunc();
+  //
+  const moreRef = document.querySelector('.more_about_author_wraper');
+  moreRef.addEventListener('click', e => {
+    e.preventDefault();
+    const searchValue = event.attractions
+      ? event.attractions.split(',')[0]
+      : event.name;
+    searchFunction(searchValue);
+    closeModalEvent();
+  });
 }
 
 function openModalFunc() {
@@ -85,9 +92,6 @@ function closeModalEvent() {
   modalWindow.classList.add('animation-close');
   backdrop.classList.add('is-hidden');
   modalWindow.innerHTML = '';
-  // правильней было бы почистить контейнер, но тогда пропадет анимация убирания окна
-  // можно что-то попробовать придумать.
-  // modalEventContainer.innerHTML = '';
 }
 
 function closeModalOnBackdropEvent(event) {
