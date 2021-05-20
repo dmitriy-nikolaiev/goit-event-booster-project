@@ -39,7 +39,7 @@ function onBackDropClick(event) {
     closeModal();
   }
 }
-function onPressEsc(event) {
+export function onPressEsc(event) {
   if (event.code === 'Escape') {
     closeModal();
   }
