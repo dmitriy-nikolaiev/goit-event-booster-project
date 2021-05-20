@@ -1,121 +1,90 @@
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
+  background-position: center top 0;
+  justify-content: center;
 
-  @media screen and(min-width: 320px) and (max-width: 768px) {
-    min-width: 320px;
-    height: 369px;
-
-    background-image: url(./images/hero-overlay-mini/overlay-mini-mobile.png),
-      url(./images/hero-overlay/overlay-mobile.png),
+  @media screen and (max-width: 767px) {
+    padding-top: 78px;
+    padding-bottom: 112px;
+    background-image: linear-gradient(
+        rgba(11, 11, 11, 0.5),
+        rgba(11, 11, 11, 0.5)
+      ),
       url(./images/hero-images/hero-mobile.jpg);
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .hero {
-        background-image: url(./images/hero-overlay-mini/overlay-mini-mobile@2x.png),
-          url(./images/hero-overlay/overlay-mobile@2x.png),
-          url(./images/hero-images/hero-mobile@2x.jpg);
-      }
-    }
   }
-
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    min-width: 768px;
-    height: 364px;
-
-    background-image: url(./images/hero-overlay-mini/overlay-mini-tablet.png),
-      url(./images/hero-overlay/overlay-tablet.png),
+  @media screen and (min-width: 768px) {
+    padding-bottom: 183px;
+    padding-top: 40px;
+    background-image: linear-gradient(
+        rgba(11, 11, 11, 0.5),
+        rgba(11, 11, 11, 0.5)
+      ),
       url(./images/hero-images/hero-tablet.jpg);
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .hero {
-        background-image: url(./images/hero-overlay-mini/overlay-mini-tablet@2x.png),
-          url(./images/hero-overlay/overlay-tablet@2x.png),
-          url(./images/hero-images/hero-tablet@2x.jpg);
-      }
-    }
   }
 
-  @media screen and(min-width: 1280px) {
-    min-width: 1280px;
-    height: 446px;
-
-    background-image: url(./images/hero-overlay-mini/overlay-mini-descktop.png),
-      url(./images/hero-overlay/overlay-descktop.png),
+  @media screen and (min-width: 1200px) {
+    padding-bottom: 192px;
+    padding-top: 40px;
+    max-width: 1280px;
+    background-image: linear-gradient(
+        rgba(11, 11, 11, 0.5),
+        rgba(11, 11, 11, 0.5)
+      ),
       url(./images/hero-images/hero-descktop.jpg);
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .hero {
-        background-image: url(./images/hero-overlay-mini/overlay-mini-descktop@2x.png),
-          url(./images/hero-overlay/overlay-descktop@2x.png),
-          url(./images/hero-images/hero-descktop@2x.jpg);
-      }
-    }
   }
 }
+//   @media screen and (max-width: 767px) {
+//     background-image: url(./images/hero-overlay-mini/overlay-mini-mobile.png),
+//       url(./images/hero-overlay/overlay-mobile.png),
+//       url(./images/hero-images/hero-mobile.jpg);
+//     padding-bottom: 192px;
 
-// .hero-overlay{
-//     position: absolute;
-//     left: 0px;
-//     top: 0px;
-//     background: rgba(11, 11, 11, 0.5);
-//     margin: 0 auto;
-
-//     @media screen and(max-width: 768px) {
-//         width: 320px;
-//         height: 369px;
+//     @media screen and (min-device-pixel-ratio: 2),
+//       screen and (min-resolution: 192dpi),
+//       screen and (min-resolution: 2dppx) {
+//       .hero {
+//         background-image: url(./images/hero-overlay-mini/overlay-mini-mobile@2x.png),
+//           url(./images/hero-overlay/overlay-mobile@2x.png),
+//           url(./images/hero-images/hero-mobile@2x.jpg);
+//       }
 //     }
+//   }
 
-//     @media screen and(min-width: 768px) and (max-width: 1280px) {
-//         width: 768px;
-//         height: 364px;
+//   @media screen and(min-width: 768px) and (max-width: 1279px) {
+//     background-image: url(./images/hero-overlay-mini/overlay-mini-tablet.png),
+//       url(./images/hero-overlay/overlay-tablet.png),
+//       url(./images/hero-images/hero-tablet.jpg);
+//     padding-bottom: 183px;
+
+//     @media screen and (min-device-pixel-ratio: 2),
+//       screen and (min-resolution: 192dpi),
+//       screen and (min-resolution: 2dppx) {
+//       .hero {
+//         background-image: url(./images/hero-overlay-mini/overlay-mini-tablet@2x.png),
+//           url(./images/hero-overlay/overlay-tablet@2x.png),
+//           url(./images/hero-images/hero-tablet@2x.jpg);
+//       }
 //     }
+//   }
 
-//     @media screen and(min-width: 1280px) {
-//         width: 1280px;
-//         height: 446px;
+//   @media screen and(min-width: 1280px) {
+//     background-image: url(./images/hero-overlay-mini/overlay-mini-descktop.png),
+//       url(./images/hero-overlay/overlay-descktop.png),
+//       url(./images/hero-images/hero-descktop.jpg);
+//     padding-bottom: 192px;
+
+//     @media screen and (min-device-pixel-ratio: 2),
+//       screen and (min-resolution: 192dpi),
+//       screen and (min-resolution: 2dppx) {
+//       .hero {
+//         background-image: url(./images/hero-overlay-mini/overlay-mini-descktop@2x.png),
+//           url(./images/hero-overlay/overlay-descktop@2x.png),
+//           url(./images/hero-images/hero-descktop@2x.jpg);
+//       }
 //     }
-// }
-
-// .hero-overlay-mini{
-//     position: absolute;
-//     width: 320px;
-//     height: 102px;
-//     left: 0px;
-//     top: 262px;
-
-//     background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%);
-// }
-
-.title-container {
-  position: absolute;
-
-  @media screen and(min-width: 320px) and (max-width: 768px) {
-    width: 212px;
-    height: 44px;
-    left: 53px;
-    top: 78px;
-  }
-
-  @media screen and(min-width: 768px) and (max-width: 1280px) {
-    width: 353px;
-    height: 74px;
-    left: 208px;
-    top: 40px;
-  }
-
-  @media screen and(min-width: 1280px) {
-    width: 588px;
-    height: 122px;
-    left: 345px;
-    top: 40px;
-  }
-}
+//   }

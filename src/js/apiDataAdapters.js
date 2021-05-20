@@ -15,13 +15,6 @@ export default {
       venue = event.place.city.name;
     }
 
-    // if (event.products) {
-    //   console.log(id, 'id_products');
-    // }
-    // if (event.priceRanges && event.products && event.priceRanges.length > 1) {
-    //   console.log(id, 'id_priceRanges>1');
-    // }
-
     return {
       id,
       name,
@@ -32,25 +25,37 @@ export default {
   },
 
   transformEventDetails(event) {
+    // console.log(event, '---event transform');
     const {
+      id,
       name,
       description,
       info,
       images,
       dates,
       priceRanges,
-      products,
       _embedded,
+      url,
     } = event;
 
-    const eventInfo = info || description || name || '';
+    let eventFullInfo = info || description || name || '';
+    const eventInfo = eventFullInfo.trim().substring(0, 110);
+    if (eventFullInfo.length <= 110) {
+      eventFullInfo = '';
+    }
+    // const eventInfo = eventFullInfo.trim().slice(0, 140) + eventFullInfo.length>140 ? '...':'';
     const eventImages = images.filter(
       image =>
         (image.height === 225 && image.width === 305) ||
         (image.height === 683 && image.width === 1024),
     );
+    eventImages.sort(function (a, b) {
+      return a.width - b.width;
+    });
 
-    let venue = '';
+    let venue = 'No venue';
+    // let date = '';
+    // let time = '';
     let city = '';
     let country = '';
     let attractions = [];
@@ -72,18 +77,29 @@ export default {
       country = event.place.country.name;
     }
 
+    const date = dates.start.localDate ? dates.start.localDate : '';
+    const time = dates.start.localTime
+      ? dates.start.localTime.split(':').slice(0, 2).join(':')
+      : '';
+    const timezone = dates.timezone
+      ? dates.timezone.replace('_', ' ', 'g')
+      : '';
+
     return {
+      id,
       name,
       eventInfo,
+      eventFullInfo,
       eventImages,
-      date: dates.start.localDate,
-      time: dates.start.localTime,
+      date,
+      time,
+      timezone,
       city,
       country,
       venue,
-      attractions,
+      attractions: attractions.join(', '),
       priceRanges,
-      products,
+      url,
     };
   },
 

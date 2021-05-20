@@ -24,7 +24,7 @@ export default {
     const data = request(
       `${BASE_URL}events/${id}.json?size=1&apikey=${API_KEY}`,
     );
-    console.log(data, '---dataID');
+    //console.log(data, '---dataID');
     return data;
   },
 
@@ -32,7 +32,7 @@ export default {
     const queryString = query !== '' ? `&keyword=${query}` : '';
     const countryString =
       countryCode !== '' ? `&countryCode=${countryCode}` : '';
-    const sortString = query !== '' ? '&sort=relevance,desc' : '&sort=date,asc';
+    const sortString = query !== '' ? '&sort=relevance,desc' : '&sort=random';
     const dateString =
       query === '' && countryCode === ''
         ? `&startEndDateTime=${dataAdapters.getDatesRange(1)}`

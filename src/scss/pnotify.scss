@@ -1,0 +1,23 @@
+.fix-alert {
+  background-color: rgba(24, 24, 24, 0.9);
+  font-size: medium;
+  border: rgb(51, 3, 27) 2px solid;
+  color: rgb(220, 86, 197);
+  border-radius: 25px;
+}
+
+.fix-error {
+  font-size: large;
+  background-color: rgba(61, 0, 29, 0.9);
+  color: #ffffff;
+  border-radius: 25px;
+  border: rgb(95, 1, 1) 2px solid;
+}
+
+.fix-info {
+  font-size: large;
+  background-color: rgba(220, 86, 197, 0.8);
+  color: #ffffff;
+  border-radius: 25px;
+  border: rgb(95, 1, 1) 2px solid;
+}
