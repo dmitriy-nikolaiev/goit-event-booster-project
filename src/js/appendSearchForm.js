@@ -1,5 +1,6 @@
 import countryCodes from './countryCodes';
 import styleselect from 'styleselect';
+import Scrollbar from 'smooth-scrollbar';
 // import EventsList from './eventsList.js';
 
 // const eventList = new EventsList('.cards-holder');
@@ -16,6 +17,11 @@ function createCountriesSelect() {
 }
 createCountriesSelect();
 
-// 
+//
 styleselect(selectRef);
-// 
+//
+Scrollbar.init(document.querySelector('.ss-dropdown'), {
+  alwaysShowTracks: true,
+  thumbMinSize: 43,
+});
+Scrollbar.detachStyle();

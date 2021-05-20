@@ -60,6 +60,7 @@
   backdrop-filter: blur(20px);
 
   border: none;
+  outline-style: none;
   border-radius: 20px;
 
   font-family: Montserrat;
@@ -68,6 +69,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #939393;
+  outline: none;
 }
 
 .input-search-label {
@@ -81,25 +83,25 @@
   cursor: pointer;
 }
 
-#input-country {
-  width: 270px;
-  height: 40px;
-  padding-left: 30px;
+// #input-country {
+//   width: 270px;
+//   height: 40px;
+//   padding-left: 30px;
 
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+//   background: rgba(255, 255, 255, 0.2);
+//   -webkit-backdrop-filter: blur(20px);
+//   backdrop-filter: blur(20px);
 
-  border: none;
-  border-radius: 20px;
+//   border: none;
+//   border-radius: 20px;
 
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  color: #939393;
-}
+//   font-family: Montserrat;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 20px;
+//   color: #939393;
+// }
 
 // .select > select:first-child {
 //   padding-left: 30px;

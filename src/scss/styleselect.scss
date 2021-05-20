@@ -1,21 +1,3 @@
-$ss-line-height: 19px !default;
-$ss-border-width: 1px !default;
-$ss-spacing: 24px !default;
-
-$ss-highlight-color: rgb(242, 244, 248) !default;
-$ss-selected-option-background: linear-gradient(
-  to bottom,
-  #fefefe,
-  #f2f2f2
-) !default;
-$ss-dropdown-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !default;
-
-$ss-standard-border: $ss-border-width solid #d0d0d0 !default;
-
-$ss-spacing-small: $ss-spacing / 2 !default;
-$ss-spacing-tiny: $ss-spacing / 4 !default;
-
-// Hide real select boxes which have seen styled.
 select[data-ss-uuid] {
   display: none;
   pointer-events: none;
@@ -43,9 +25,6 @@ select[data-ss-uuid] {
     margin: 0;
     box-sizing: border-box;
     text-align: left;
-    line-height: $ss-line-height;
-    // color: black;
-    // font-weight: 300;
     cursor: pointer;
   }
 
@@ -55,29 +34,27 @@ select[data-ss-uuid] {
     top: 10px;
     left: 0;
     padding-left: 30px;
-    // background-image: $ss-selected-option-background;
-    // border-radius: 2px;
-    // padding: $ss-spacing-tiny;
-    // border: $ss-standard-border;
+
     // The down arrow
     &::after {
-      content: '▾';
+      content: '';
       position: absolute;
 
-      // top: $ss-spacing-tiny;
-      // right: $ss-spacing-small;
-      top: 1px;
+      top: 6px;
       right: 25px;
       display: block;
+      background-image: url('./images/decor/select_arr_down.svg');
+      width: 13px;
+      height: 8px;
+      background-repeat: no-repeat;
+      background-size: contain;
       //
       // background: rgba(255, 255, 255, 0.2);
       // backdrop-filter: blur(20px);
     }
-    // палочка
   }
 
   .ss-dropdown {
-    // top: $ss-line-height + 2 * $ss-spacing-tiny + $ss-border-width;
     top: 40px;
     left: 0;
     position: absolute;
@@ -85,12 +62,7 @@ select[data-ss-uuid] {
     width: 100%;
     width: 270px;
     display: none;
-    // box-shadow: $ss-dropdown-shadow;
-    // border: $ss-standard-border;
-    // border-top: 0 none;
     height: 210px;
-    // scrollbar-width: thin;
-    // overflow-y: scroll;
     overflow: auto;
 
     background: rgba(255, 255, 255, 0.2);
@@ -98,13 +70,7 @@ select[data-ss-uuid] {
 
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    //
-    // палочка
-    // &::before {
-    //   content: '';
-    //   display: block;
-    //   border-bottom: 1px solid #939393;
-    // }
+    color: #cccccc;
 
     .ss-option {
       width: 100%;
@@ -117,24 +83,11 @@ select[data-ss-uuid] {
       font-weight: normal;
       font-size: 16px;
       line-height: 20px;
-      /* identical to box height */
 
-      color: #cccccc;
-      // padding: $ss-spacing-tiny;
-      // background-color: white;
-      // We don't use :hover as that's only for mouse
-      // and we want keyboard highlighting too #DC56C5
       &.highlighted {
         // background-color: $ss-highlight-color;
         background-color: #dc56c5;
       }
-      // &.disabled {
-      //   color: #d0d0d0;
-      // }
-      // &.ticked::before {
-      //   content: '✓';
-      //   padding-right: 3px;
-      // }
     }
   }
 
@@ -156,20 +109,68 @@ select[data-ss-uuid] {
       display: block;
     }
     .ss-selected-option::after {
-      content: '▴';
+      content: '';
+      position: absolute;
+      top: 6px;
+      right: 25px;
+      display: block;
+      background-image: url('./images/decor/select_arr_up.svg');
+      width: 13px;
+      height: 8px;
+      background-repeat: no-repeat;
+      background-size: contain;
     }
   }
 }
+.scrollbar-track-y {
+  width: 3px;
+}
 
-// .scrollbar {
-//   margin-left: 30px;
-//   float: left;
-//   height: 300px;
-//   width: 65px;
-//   background: #fff;
-//   overflow-y: scroll;
-//   margin-bottom: 25px;
-// }
-// .force-overflow {
-//   min-height: 450px;
-// }
+//
+[data-scrollbar] {
+  display: block;
+  position: relative;
+}
+.scroll-content {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.scrollbar-track {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 0.5s 0.5s ease-out;
+  transition: opacity 0.5s 0.5s ease-out;
+}
+.scrollbar-track.show,
+.scrollbar-track:hover {
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.scrollbar-track-x {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.scrollbar-track-y {
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+}
+.scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+
+  background: #939393;
+  border-radius: 20px;
+}

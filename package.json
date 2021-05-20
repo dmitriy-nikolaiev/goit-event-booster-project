@@ -55,6 +55,7 @@
     "core-js": "^3.6.5",
     "firebase": "^8.6.1",
     "handlebars": "^4.7.6",
+    "smooth-scrollbar": "^8.6.2",
     "styleselect": "^1.0.3"
   }
 }
