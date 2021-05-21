@@ -27,4 +27,5 @@ if (customListRef) {
     thumbMinSize: 43,
   });
   Scrollbar.detachStyle();
+  selectRef.style.display = 'none';
 }
