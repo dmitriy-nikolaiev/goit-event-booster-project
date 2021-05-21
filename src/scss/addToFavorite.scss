@@ -1,20 +1,42 @@
 @media screen and (min-width: 320px) and (max-width: 767.5px) {
   .pers-acc__favorite-list {
-    display: grid;
+    // display: grid;
     grid-template-columns: 1fr;
+    grid-row-gap: 15px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   .pers-acc__favorite-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    // display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
   }
 }
 @media screen and (min-width: 1280px) {
   .pers-acc__favorite-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    // display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
   }
+}
+.pers-acc__favorite-list {
+  display: grid;
+  list-style: none;
+  grid-row-gap: 30px;
+  // column-gap: 30px;
+}
+.pers-acc__favorite-title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  color: #dc56c5;
+
+  margin-bottom: 5px;
+}
+.pers-acc__favorite-container {
+  margin: 0 auto;
 }
 
 .add-to-favorite-bttn.is-hidden {
@@ -61,7 +83,11 @@
     fill: red;
   }
 }
-
+.fa-map-marker-alt {
+  font-size: 12px;
+  padding-bottom: 1px;
+  margin-right: 3px;
+}
 .add-to-favorite-date {
   color: black;
   font-style: normal;

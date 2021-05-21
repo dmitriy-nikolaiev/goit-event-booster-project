@@ -27,7 +27,7 @@
       url(./images/hero-images/hero-tablet.jpg);
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     padding-bottom: 192px;
     padding-top: 40px;
     max-width: 1280px;
@@ -38,53 +38,3 @@
       url(./images/hero-images/hero-descktop.jpg);
   }
 }
-//   @media screen and (max-width: 767px) {
-//     background-image: url(./images/hero-overlay-mini/overlay-mini-mobile.png),
-//       url(./images/hero-overlay/overlay-mobile.png),
-//       url(./images/hero-images/hero-mobile.jpg);
-//     padding-bottom: 192px;
-
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       .hero {
-//         background-image: url(./images/hero-overlay-mini/overlay-mini-mobile@2x.png),
-//           url(./images/hero-overlay/overlay-mobile@2x.png),
-//           url(./images/hero-images/hero-mobile@2x.jpg);
-//       }
-//     }
-//   }
-
-//   @media screen and(min-width: 768px) and (max-width: 1279px) {
-//     background-image: url(./images/hero-overlay-mini/overlay-mini-tablet.png),
-//       url(./images/hero-overlay/overlay-tablet.png),
-//       url(./images/hero-images/hero-tablet.jpg);
-//     padding-bottom: 183px;
-
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       .hero {
-//         background-image: url(./images/hero-overlay-mini/overlay-mini-tablet@2x.png),
-//           url(./images/hero-overlay/overlay-tablet@2x.png),
-//           url(./images/hero-images/hero-tablet@2x.jpg);
-//       }
-//     }
-//   }
-
-//   @media screen and(min-width: 1280px) {
-//     background-image: url(./images/hero-overlay-mini/overlay-mini-descktop.png),
-//       url(./images/hero-overlay/overlay-descktop.png),
-//       url(./images/hero-images/hero-descktop.jpg);
-//     padding-bottom: 192px;
-
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       .hero {
-//         background-image: url(./images/hero-overlay-mini/overlay-mini-descktop@2x.png),
-//           url(./images/hero-overlay/overlay-descktop@2x.png),
-//           url(./images/hero-images/hero-descktop@2x.jpg);
-//       }
-//     }
-//   }

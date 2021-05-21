@@ -12,6 +12,9 @@
 }
 
 @media screen and (min-width: 320px) {
+  .main {
+    margin-top: -25px;
+  }
   .container {
     width: 280px;
   }
@@ -22,7 +25,11 @@
   }
 }
 
-@media screen and(min-width: 768px) and (max-width: 1280px) {
+@media screen and(min-width: 768px) and (max-width: 1279px) {
+  .main {
+    margin-top: -60px;
+  }
+
   .container {
     width: 610px;
   }
@@ -35,6 +42,10 @@
 }
 
 @media screen and(min-width: 1280px) {
+  .main {
+    margin-top: -60px;
+  }
+
   .container {
     width: 946px;
   }
