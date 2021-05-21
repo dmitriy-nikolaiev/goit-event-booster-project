@@ -20,8 +20,11 @@ createCountriesSelect();
 //
 styleselect(selectRef);
 //
-Scrollbar.init(document.querySelector('.ss-dropdown'), {
-  alwaysShowTracks: true,
-  thumbMinSize: 43,
-});
-Scrollbar.detachStyle();
+const customListRef = document.querySelector('.ss-dropdown');
+if (customListRef) {
+  Scrollbar.init(customListRef, {
+    alwaysShowTracks: true,
+    thumbMinSize: 43,
+  });
+  Scrollbar.detachStyle();
+}

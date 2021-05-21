@@ -50,17 +50,21 @@
           {{country}}</p>
         <p class='event_place_text'>{{venue}}</p>
       </div>
-      <div class='event_headliner'>
-        <h2 class='event_headliner_title'>WHO</h2>
+      {{#if attractions}}
+        <div class='event_headliner'>
+          <h2 class='event_headliner_title'>WHO</h2>
 
-      <div class="event_headliner_wraper" ><p class='event_headliner_text'>{{attractions}}</p></div>
-        
-        
-      </div>
-      <div class='event_price'>
-        <h2 class='event_price_title'>PRICES</h2>
+          <div class='event_headliner_wraper'><p
+              class='event_headliner_text'
+            >{{attractions}}</p></div>
 
-        {{#if priceRanges}}
+        </div>
+      {{/if}}
+
+      {{#if priceRanges}}
+        <div class='event_price'>
+          <h2 class='event_price_title'>PRICES</h2>
+
           <div class='event_price_container'>
             <svg
               class='event_price_svg'
@@ -118,11 +122,11 @@
               >BUY TICKETS</span></a>
           {{/if}}
 
-        {{else}}
-          <p class='event_price_text'>No price</p>
-        {{/if}}
-      </div>
+          {{!-- {{else}}
+          <p class='event_price_text'>No price</p> --}}
 
+        </div>
+      {{/if}}
     </div>
 
   </div>

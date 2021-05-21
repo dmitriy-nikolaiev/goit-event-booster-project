@@ -8,13 +8,12 @@ import './styles.scss';
 import EventsList from './js/eventsList.js';
 import './js/appendLogo';
 import './js/appendHero';
+import './js/appendSearchForm';
 import './js/eventModal';
 import './js/account';
 import './js/auth';
-import './js/appendSearchForm';
 import './js/addToFavorite';
 import './js/preloader';
-
 
 const eventList = new EventsList('.cards-holder');
 eventList.searchEvents();
