@@ -176,9 +176,9 @@
 }
 
 .pers-acc__tabs > div:not(.pers-acc__tabs-links) {
-  display: none;
+  display: block;
   order: 1;
 }
 .pers-acc__tabs > div:target {
-  display: block;
+  display: none;
 }
