@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: contain;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     background-position: left 0 top 364px;
 
     background-image: url(./images/body-background/noise-body-mobile.png);
@@ -17,7 +17,7 @@
     }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1280px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     background-position: left 0 top 364px, center;
 
     background-image: url(./images/body-background/noise-body-tablet.png),

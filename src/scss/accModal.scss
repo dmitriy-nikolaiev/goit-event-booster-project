@@ -85,6 +85,8 @@
   background-color: #fff;
   transform: scale(0.95);
   transition: transform var(--animation-duration) var(--timing-function);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .pers-acc__close-bttn {
@@ -114,7 +116,7 @@
 }
 
 .pers-acc__out-bttn {
-  position: absolute;
+  // position: absolute;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
@@ -125,8 +127,9 @@
   height: 40px;
   background: #4c00fe;
   border-radius: 5px;
-  bottom: 15px;
-  left: 15px;
+  // bottom: 15px;
+  // left: 15px;
+  margin-top: 10px;
 }
 
 .pers-acc__tabs {
