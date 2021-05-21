@@ -24,6 +24,10 @@ class EventsList {
   }
 
   renderList(events) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     this.listElement.innerHTML = eventCardListTemplate(
       events.map(event => dataAdapters.transformEventData(event)),
     );
@@ -32,13 +36,12 @@ class EventsList {
   detailsQueryHandler = async id => {
     try {
       const resultEvent = await eventsService.getEventDetails(id);
-      // console.log(result, '---queryHandler');
+      //
       const dataDetails = dataAdapters.transformEventDetails(resultEvent);
       showModalDetails(dataDetails, this.searchMore.bind(this));
     } catch (error) {
-      // TODO: Dislay error for detail query error
       showNotify.showError();
-      console.log(error, '---errorDetailsQuery');
+      // console.log(error);
     }
   };
 
@@ -50,9 +53,7 @@ class EventsList {
         this.paginator.page,
         this.paginator.itemsPerPage,
       );
-      // console.log(result, '---queryHandler');
       if (result._embedded) {
-        // this.paginator.init(result.page.number, result.page.totalPages);
         this.paginator.init(
           result.page.number,
           result.page.totalPages > Math.floor(1000 / this.itemsPerPage)
@@ -61,14 +62,11 @@ class EventsList {
         );
         this.renderList(result._embedded.events);
       } else {
-        // TODO: Display not found
         showNotify.showAlert();
-        console.log('Not Found');
       }
     } catch (error) {
-      // TODO: Dislay error
       showNotify.ShowInfo();
-      console.log(error, '---searchEvents');
+      // console.log(error);
     }
   };
 

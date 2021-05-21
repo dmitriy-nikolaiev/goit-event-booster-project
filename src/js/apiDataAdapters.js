@@ -6,7 +6,7 @@ export default {
       image => image.height === 225 && image.width === 305,
     );
 
-    let venue = 'No venue';
+    let venue = '';
     if (_embedded && _embedded.venues) {
       venue = _embedded.venues[0].name
         ? _embedded.venues[0].name
@@ -25,7 +25,6 @@ export default {
   },
 
   transformEventDetails(event) {
-    // console.log(event, '---event transform');
     const {
       id,
       name,
@@ -43,7 +42,6 @@ export default {
     if (eventFullInfo.length <= 110) {
       eventFullInfo = '';
     }
-    // const eventInfo = eventFullInfo.trim().slice(0, 140) + eventFullInfo.length>140 ? '...':'';
     const eventImages = images.filter(
       image =>
         (image.height === 225 && image.width === 305) ||
@@ -53,28 +51,25 @@ export default {
       return a.width - b.width;
     });
 
-    let venue = 'No venue';
-    // let date = '';
-    // let time = '';
+    let venue = '';
     let city = '';
     let country = '';
     let attractions = [];
 
-    if (_embedded) {
-      if (_embedded.venues) {
-        venue = _embedded.venues[0].name;
-        city = _embedded.venues[0].city.name;
-        country = _embedded.venues[0].country.name;
-      }
-
-      if (_embedded.attractions) {
-        attractions = _embedded.attractions.map(attraction => {
-          return attraction.name;
-        });
-      }
+    // if (_embedded.venues) {
+    if (_embedded.venues) {
+      venue = _embedded.venues[0].name;
+      city = _embedded.venues[0].city.name;
+      country = _embedded.venues[0].country.name;
     } else if (event.place) {
       city = event.place.city.name;
       country = event.place.country.name;
+    }
+    // }
+    if (_embedded.attractions) {
+      attractions = _embedded.attractions.map(attraction => {
+        return attraction.name;
+      });
     }
 
     const date = dates.start.localDate ? dates.start.localDate : '';
