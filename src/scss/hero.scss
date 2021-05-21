@@ -83,43 +83,22 @@
   cursor: pointer;
 }
 
-// #input-country {
-//   width: 270px;
-//   height: 40px;
-//   padding-left: 30px;
+#input-country {
+  width: 270px;
+  height: 40px;
+  padding-left: 30px;
 
-//   background: rgba(255, 255, 255, 0.2);
-//   -webkit-backdrop-filter: blur(20px);
-//   backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 
-//   border: none;
-//   border-radius: 20px;
+  border: none;
+  border-radius: 20px;
 
-//   font-family: Montserrat;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 20px;
-//   color: #939393;
-// }
-
-// .select > select:first-child {
-//   padding-left: 30px;
-
-//   font-family: Montserrat;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 16px;
-//   line-height: 20px;
-
-//   color: #939393;
-// }
-// .optin-coutries-list {
-//   color: #939393;
-//   background-color: rgba(255, 255, 255, 0.2);
-//   border-radius: 20px;
-// }
-// #input-country > option {
-//   background-color: #939393;
-//   color: rgb(193, 193, 193);
-// }
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #939393;
+}

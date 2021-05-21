@@ -56,7 +56,6 @@ export default {
     let country = '';
     let attractions = [];
 
-    // if (_embedded.venues) {
     if (_embedded.venues) {
       venue = _embedded.venues[0].name;
       city = _embedded.venues[0].city.name;
@@ -65,7 +64,7 @@ export default {
       city = event.place.city.name;
       country = event.place.country.name;
     }
-    // }
+    //
     if (_embedded.attractions) {
       attractions = _embedded.attractions.map(attraction => {
         return attraction.name;
